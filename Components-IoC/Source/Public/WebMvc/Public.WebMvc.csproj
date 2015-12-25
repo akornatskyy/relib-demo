@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{37D5E156-71F2-4052-AA57-4611B02E730E}</ProjectGuid>
+    <ProjectTypeGuids>{f85e285d-a4e0-4152-9332-ab1d724d3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Public.WebMvc</RootNamespace>
+    <AssemblyName>Public.WebMvc</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="ReusableLibrary.Abstractions, Version=1.0.4.43411, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\ReusableLibrary.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="ReusableLibrary.Captcha, Version=1.1.2.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\ReusableLibrary.Captcha.dll</HintPath>
+    </Reference>
+    <Reference Include="ReusableLibrary.EntLib, Version=1.0.4.43411, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\ReusableLibrary.EntLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ReusableLibrary.Memcached, Version=1.0.9.55991, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\ReusableLibrary.Memcached.dll</HintPath>
+    </Reference>
+    <Reference Include="ReusableLibrary.Supplemental, Version=1.0.4.43411, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\ReusableLibrary.Supplemental.dll</HintPath>
+    </Reference>
+    <Reference Include="ReusableLibrary.Unity, Version=1.0.4.43411, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\ReusableLibrary.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="ReusableLibrary.Web, Version=1.1.2.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\ReusableLibrary.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="ReusableLibrary.Web.Mvc, Version=1.0.4.43411, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\ReusableLibrary.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="App_GlobalResources\ReusableLibraryCaptcha.ru.designer.cs">
+      <DependentUpon>ReusableLibraryCaptcha.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\ReusableLibraryCaptcha.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReusableLibraryCaptcha.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\ReusableLibraryWebMvc.ru.designer.cs">
+      <DependentUpon>ReusableLibraryWebMvc.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\SystemWebMvc.ru.designer.cs">
+      <DependentUpon>SystemWebMvc.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\SystemWebMvc.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SystemWebMvc.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\ReusableLibraryWebMvc.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReusableLibraryWebMvc.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Constants\AntiForgeryTokenSaltNames.cs" />
+    <Compile Include="Constants\CacheProfileNames.cs" />
+    <Compile Include="Constants\UnitOfWorkNames.cs" />
+    <Compile Include="Constants\VaryByCustomNames.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TicketsController.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\RegisterSubstitutions.cs" />
+    <Compile Include="Helpers\MemcachedFactory.cs" />
+    <Compile Include="Helpers\RegisterPreRoutes.cs" />
+    <Compile Include="Helpers\InitializeMvcSettings.cs" />
+    <Compile Include="Helpers\PageTitleHelper.cs" />
+    <Compile Include="Helpers\RegisterPostRoutes.cs" />
+    <Compile Include="Helpers\Substitutions.cs" />
+    <Compile Include="Models\LogonViewData.cs" />
+    <Compile Include="Models\RegisterViewData.cs" />
+    <Compile Include="Models\SampleViewData.cs" />
+    <Compile Include="Models\TicketDetailsViewData.cs" />
+    <Compile Include="Models\TicketListViewData.cs" />
+    <Compile Include="Models\TicketSearchViewData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.ru.Designer.cs">
+      <DependentUpon>Resources.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Account\Resources\Register.ru.Designer.cs">
+      <DependentUpon>Register.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Account\Resources\LogOn.ru.Designer.cs">
+      <DependentUpon>LogOn.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Account\Resources\LogOn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogOn.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Resources\Register.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Register.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Error\Resources\HttpError.ru.Designer.cs">
+      <DependentUpon>HttpError.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Error\Resources\HttpError.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HttpError.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Resources\About.Designer.cs">
+      <DependentUpon>About.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Home\Resources\About.ru.Designer.cs">
+      <DependentUpon>About.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Home\Resources\CacheSubstitution.Designer.cs">
+      <DependentUpon>CacheSubstitution.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Home\Resources\CacheSubstitution.ru.Designer.cs">
+      <DependentUpon>CacheSubstitution.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Home\Resources\Index.ru.Designer.cs">
+      <DependentUpon>Index.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Home\Resources\Index.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\Captcha.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Captcha.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\Captcha.ru.Designer.cs">
+      <DependentUpon>Captcha.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\LanguageBar.ru.Designer.cs">
+      <DependentUpon>LanguageBar.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\GeneralError.ru.Designer.cs">
+      <DependentUpon>GeneralError.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\GeneralError.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralError.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\LanguageBar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LanguageBar.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\SiteMaster.ru.Designer.cs">
+      <DependentUpon>SiteMaster.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\LogOnUser.ru.Designer.cs">
+      <DependentUpon>LogOnUser.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\LogOnUser.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogOnUser.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Resources\SiteMaster.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SiteMaster.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tickets\Resources\Details.ru.Designer.cs">
+      <DependentUpon>Details.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Tickets\Resources\Details.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Details.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tickets\Resources\List.ru.Designer.cs">
+      <DependentUpon>List.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Tickets\Resources\List.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>List.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tickets\Resources\ListHeader.ru.Designer.cs">
+      <DependentUpon>ListHeader.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Tickets\Resources\Index.ru.Designer.cs">
+      <DependentUpon>Index.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Tickets\Resources\Index.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tickets\Resources\ListHeader.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListHeader.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Views\Error\IpPolicy.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Account\LogOn.aspx" />
+    <Content Include="Views\Account\Register.aspx" />
+    <Content Include="Views\Home\About.aspx" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Shared\Error.aspx" />
+    <Content Include="Views\Shared\LogOnUser.ascx" />
+    <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Tickets\Interface\Tickets.Interface.csproj">
+      <Project>{ED2228FD-A7DF-4E77-B7DB-77B9B1120AA4}</Project>
+      <Name>Tickets.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tickets\Module\Tickets.Module.csproj">
+      <Project>{8456A589-E4E3-4E10-9776-648DC2137F49}</Project>
+      <Name>Tickets.Module</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Tickets.mdf">
+    </Content>
+    <Content Include="App_Data\Tickets_log.LDF">
+      <DependentUpon>Tickets.mdf</DependentUpon>
+    </Content>
+    <Content Include="Unity.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Tickets\Details.aspx" />
+    <Content Include="Views\Tickets\Index.aspx" />
+    <Content Include="Views\Tickets\List.aspx" />
+    <Content Include="Views\Tickets\ListHeader.ascx" />
+    <Content Include="Views\Tickets\ListItem.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\SystemWebMvc.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>SystemWebMvc.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\ReusableLibraryWebMvc.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ReusableLibraryWebMvc.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\SystemWebMvc.ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>SystemWebMvc.ru.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\ReusableLibraryWebMvc.ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ReusableLibraryWebMvc.ru.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\ReusableLibraryCaptcha.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ReusableLibraryCaptcha.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\ReusableLibraryCaptcha.ru.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ReusableLibraryCaptcha.ru.designer.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\Resources\Register.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Register.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\Resources\LogOn.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LogOn.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\Resources\LogOn.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LogOn.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\Resources\Register.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Register.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Error\Resources\HttpError.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HttpError.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Error\Resources\HttpError.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HttpError.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\Resources\About.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>About.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\Resources\About.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>About.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\Resources\CacheSubstitution.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CacheSubstitution.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\Resources\CacheSubstitution.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CacheSubstitution.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\Resources\Index.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\Resources\Index.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\Captcha.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Captcha.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\Captcha.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Captcha.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\LanguageBar.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LanguageBar.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\GeneralError.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GeneralError.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\GeneralError.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GeneralError.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\LanguageBar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LanguageBar.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\SiteMaster.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SiteMaster.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\LogOnUser.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LogOnUser.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\LogOnUser.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LogOnUser.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Resources\SiteMaster.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SiteMaster.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tickets\Resources\Details.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Details.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tickets\Resources\Details.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Details.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tickets\Resources\List.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>List.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tickets\Resources\List.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>List.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tickets\Resources\ListHeader.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ListHeader.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tickets\Resources\Index.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tickets\Resources\Index.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tickets\Resources\ListHeader.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ListHeader.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Validation.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\icons\error.gif" />
+    <Content Include="content\icons\exclamation.gif" />
+    <Content Include="content\icons\info.gif" />
+    <Content Include="content\site.css" />
+    <Content Include="Repository-Mock.config" />
+    <Content Include="Repository-Cache.config" />
+    <Content Include="Repository-Sql.config" />
+    <Content Include="Cache-EntLib.config" />
+    <Content Include="Cache-Memcached.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="EnterpriseLibrary.Configuration.xsd" />
+    <Content Include="Exception.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="scripts\autocomplete.js" />
+    <Content Include="scripts\core.js" />
+    <Content Include="scripts\jquery-1.5.min.js" />
+    <Content Include="Views\Account\Authenticate.ascx" />
+    <Content Include="Views\Error\LimitExceeded.aspx" />
+    <Content Include="Views\Error\HttpRequestValidation.aspx" />
+    <Content Include="Views\Error\HttpAntiForgery.aspx" />
+    <Content Include="Views\Error\Http500.aspx" />
+    <Content Include="Views\Error\Http404.aspx" />
+    <Content Include="Views\Error\Http403.aspx" />
+    <Content Include="Views\Error\Http400.aspx" />
+    <Content Include="Views\Home\CacheSubstitution.aspx" />
+    <Content Include="Views\Shared\Captcha.ascx" />
+    <Content Include="Views\Shared\Captcha2.ascx" />
+    <Content Include="Views\Shared\LanguageBar.ascx" />
+    <Content Include="Views\Tickets\ListItems.ascx" />
+    <None Include="UnityConfiguration20.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handlers\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)\..\$(ProjectName)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>1895</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

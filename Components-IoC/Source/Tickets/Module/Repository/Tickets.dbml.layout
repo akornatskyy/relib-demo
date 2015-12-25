@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.75" name="Tickets">
+  <DataContextMoniker Name="/TicketsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="6c561282-7982-4228-95b4-06f111f18fed" absoluteBounds="0.75, 3.875, 2, 1.9178898111979161">
+      <DataClassMoniker Name="/TicketsDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="31b8f0b6-d9f4-4dbe-ad9c-58aad94f33ff" absoluteBounds="0.76500000059604645, 4.33500000089407, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e2b1ec1e-7183-4ccb-8c88-30c1a7083c48" absoluteBounds="3.5, 1.75, 2, 1.0961531575520835">
+      <DataClassMoniker Name="/TicketsDataContext/TicketType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="02ca7a17-99c4-4611-bdb3-fd4b8300c64b" absoluteBounds="3.5150000005960464, 2.2100000008940697, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c5aa87e8-167a-4a03-bf89-a6157ff8e061" absoluteBounds="6.25, 4.125, 2, 1.5891951497395827">
+      <DataClassMoniker Name="/TicketsDataContext/TicketHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e44a947c-2d8b-4eae-96c4-14901aa0bbcd" absoluteBounds="6.2650000005960464, 4.58500000089407, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a91df235-d9e8-44ed-b551-7f424d5db6c6" absoluteBounds="0.75, 7.25, 2, 1.2605004882812478">
+      <DataClassMoniker Name="/TicketsDataContext/PasswordQuestion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f1dedb12-51e8-46e3-b6ac-b847390c89ea" absoluteBounds="0.765, 7.71, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3e20eac3-562f-424d-94d4-d7daae766901" absoluteBounds="6.25, 0.75, 2, 2.2465844726562505">
+      <DataClassMoniker Name="/TicketsDataContext/Ticket" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d53d6e1d-e7a9-4b73-b91e-614f7b35db95" absoluteBounds="6.265, 1.21, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.25 : 2.99658447265625); (7.25 : 4.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TicketsDataContext/Ticket/Ticket_TicketHistory" />
+      <nodes>
+        <classShapeMoniker Id="3e20eac3-562f-424d-94d4-d7daae766901" />
+        <classShapeMoniker Id="c5aa87e8-167a-4a03-bf89-a6157ff8e061" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.29807657877604); (6.25 : 2.29807657877604)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TicketsDataContext/TicketType/TicketType_Ticket" />
+      <nodes>
+        <classShapeMoniker Id="e2b1ec1e-7183-4ccb-8c88-30c1a7083c48" />
+        <classShapeMoniker Id="3e20eac3-562f-424d-94d4-d7daae766901" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="45e8b117-4dbb-4f3f-89d4-de30eab2d638" absoluteBounds="3.5, 4.125, 2, 1.5891951497395827">
+      <DataClassMoniker Name="/TicketsDataContext/Staff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b8b4cc13-e507-4db4-a318-46239dcdcb27" absoluteBounds="3.515, 4.585, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 4.91959757486979); (6.25 : 4.91959757486979)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TicketsDataContext/Staff/Staff_TicketHistory" />
+      <nodes>
+        <classShapeMoniker Id="45e8b117-4dbb-4f3f-89d4-de30eab2d638" />
+        <classShapeMoniker Id="c5aa87e8-167a-4a03-bf89-a6157ff8e061" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.125); (5.875 : 3.75); (5.875 : 1.49278628938802); (6.25 : 1.49278628938802)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TicketsDataContext/Staff/Staff_Ticket" />
+      <nodes>
+        <classShapeMoniker Id="45e8b117-4dbb-4f3f-89d4-de30eab2d638" />
+        <classShapeMoniker Id="3e20eac3-562f-424d-94d4-d7daae766901" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.91959757486979); (3.5 : 4.91959757486979)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TicketsDataContext/User/User_Staff" />
+      <nodes>
+        <classShapeMoniker Id="6c561282-7982-4228-95b4-06f111f18fed" />
+        <classShapeMoniker Id="45e8b117-4dbb-4f3f-89d4-de30eab2d638" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.20259469088041 : 5.71419514973958); (4.20259469088041 : 5.96419514973958); (4.81156746669672 : 5.96419514973958); (4.81156746669672 : 5.71419514973958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TicketsDataContext/Staff/Staff_Staff" />
+      <nodes>
+        <classShapeMoniker Id="45e8b117-4dbb-4f3f-89d4-de30eab2d638" />
+        <classShapeMoniker Id="45e8b117-4dbb-4f3f-89d4-de30eab2d638" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

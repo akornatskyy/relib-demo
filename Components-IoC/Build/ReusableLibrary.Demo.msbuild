@@ -1,0 +1,174 @@
+<Project DefaultTargets="Build" InitialTargets="Init" ToolsVersion="4.0"
+    xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="Master.Targets" />
+    <UsingTask AssemblyFile="Sdc\Microsoft.Sdc.Tasks.dll" TaskName="Microsoft.Sdc.Tasks.PerformanceCounters.Add"/>
+    <UsingTask AssemblyFile="Sdc\Microsoft.Sdc.Tasks.dll" TaskName="Microsoft.Sdc.Tasks.PerformanceCounters.Remove"/>
+    
+    <PropertyGroup>
+        <Company></Company>
+        <AppName>ReusableLibrary.Demo</AppName>
+        <Copyright>This software is based on the MIT license.</Copyright>
+    </PropertyGroup>
+
+    <Target Name="Test">
+        <xunit Assembly="$(SourceRoot)\Tests\Validation\bin\$(BuildType)\Public.ValidationTests.dll"
+            Xml="$(Artifacts)\Tests\Public.ValidationTests.xml" />
+        <xunit Assembly="$(SourceRoot)\Tests\WebMvcTests\bin\$(BuildType)\Public.WebMvcTests.dll"
+            Xml="$(Artifacts)\Tests\Public.WebMvcTests.xml" />
+    </Target>
+
+    <Target Name="Integration" DependsOnTargets="Repository;Functional">
+    </Target>
+
+    <Target Name="Repository">
+    </Target>
+
+    <Target Name="Functional" DependsOnTargets="PrecompileWeb">
+        <xunit Assembly="$(SourceRoot)\Tests\Functional\bin\$(BuildType)\Public.FunctionalTests.dll"
+            Xml="$(Artifacts)\Tests\Public.FunctionalTests.xml" />
+    </Target>
+    
+    <Target Name="PackageCore" DependsOnTargets="PrecompileWeb">
+        <ItemGroup>
+            <BackgroundFiles Include="$(SourceRoot)\Source\Background\Host\bin\$(BuildType)\*.exe" />
+            <BackgroundFiles Include="$(SourceRoot)\Source\Background\Host\bin\$(BuildType)\*.config" />
+            <BackgroundFiles Include="$(SourceRoot)\Source\Background\Host\bin\$(BuildType)\*.dll" />
+        </ItemGroup>
+
+        <Copy SourceFiles="@(BackgroundFiles)" DestinationFolder="$(Artifacts)\Bin\Background" />
+    </Target>
+
+    <Target Name="PerformanceCounters">
+        <ItemGroup>
+            <!-- Cache Failed Requests -->
+            <MemcachedCounterList Include="x">
+                <CounterName>Total Cache Failed Requests</CounterName>
+                <CounterType>NumberOfItems32</CounterType>
+            </MemcachedCounterList>
+            <MemcachedCounterList Include="x">
+                <CounterName>Cache Failed Requests/sec</CounterName>
+                <CounterType>RateOfCountsPerSecond32</CounterType>
+            </MemcachedCounterList>
+            <!-- Cache Hits -->
+            <MemcachedCounterList Include="x">
+                <CounterName>Total Cache Hits</CounterName>
+                <CounterType>NumberOfItems32</CounterType>
+            </MemcachedCounterList>
+            <MemcachedCounterList Include="x">
+                <CounterName>Cache Hits/sec</CounterName>
+                <CounterType>RateOfCountsPerSecond32</CounterType>
+            </MemcachedCounterList>
+            <!-- Cache Misses -->
+            <MemcachedCounterList Include="x">
+                <CounterName>Total Cache Misses</CounterName>
+                <CounterType>NumberOfItems32</CounterType>
+            </MemcachedCounterList>
+            <MemcachedCounterList Include="x">
+                <CounterName>Cache Misses/sec</CounterName>
+                <CounterType>RateOfCountsPerSecond32</CounterType>
+            </MemcachedCounterList>
+            <!-- Cache Store Requests -->
+            <MemcachedCounterList Include="x">
+                <CounterName>Total Cache Store Requests</CounterName>
+                <CounterType>NumberOfItems32</CounterType>
+            </MemcachedCounterList>
+            <MemcachedCounterList Include="x">
+                <CounterName>Cache Store Requests/sec</CounterName>
+                <CounterType>RateOfCountsPerSecond32</CounterType>
+            </MemcachedCounterList>
+            <!-- Cache Remove Requests -->
+            <MemcachedCounterList Include="x">
+                <CounterName>Total Cache Remove Requests</CounterName>
+                <CounterType>NumberOfItems32</CounterType>
+            </MemcachedCounterList>
+            <MemcachedCounterList Include="x">
+                <CounterName>Cache Remove Requests/sec</CounterName>
+                <CounterType>RateOfCountsPerSecond32</CounterType>
+            </MemcachedCounterList>
+        </ItemGroup>
+
+        <ItemGroup>
+            <!-- Captcha Requests -->
+            <CaptchaCounterList Include="x">
+                <CounterName>Total Captcha Requests</CounterName>
+                <CounterType>NumberOfItems32</CounterType>
+            </CaptchaCounterList>
+            <CaptchaCounterList Include="x">
+                <CounterName>Captcha Requests/sec</CounterName>
+                <CounterType>RateOfCountsPerSecond32</CounterType>
+            </CaptchaCounterList>
+            <!-- Captcha Failed Requests -->
+            <CaptchaCounterList Include="x">
+                <CounterName>Total Captcha Failed Requests</CounterName>
+                <CounterType>NumberOfItems32</CounterType>
+            </CaptchaCounterList>
+            <CaptchaCounterList Include="x">
+                <CounterName>Captcha Failed Requests/sec</CounterName>
+                <CounterType>RateOfCountsPerSecond32</CounterType>
+            </CaptchaCounterList>
+            <!-- Captcha Render Requests -->
+            <CaptchaCounterList Include="x">
+                <CounterName>Total Captcha Render Requests</CounterName>
+                <CounterType>NumberOfItems32</CounterType>
+            </CaptchaCounterList>
+            <CaptchaCounterList Include="x">
+                <CounterName>Captcha Render Requests/sec</CounterName>
+                <CounterType>RateOfCountsPerSecond32</CounterType>
+            </CaptchaCounterList>
+            <!-- Captcha Verification Requests -->
+            <CaptchaCounterList Include="x">
+                <CounterName>Total Captcha Verification Requests</CounterName>
+                <CounterType>NumberOfItems32</CounterType>
+            </CaptchaCounterList>
+            <CaptchaCounterList Include="x">
+                <CounterName>Captcha Verification Requests/sec</CounterName>
+                <CounterType>RateOfCountsPerSecond32</CounterType>
+            </CaptchaCounterList>
+            <!-- Captcha Verification Failed Requests -->
+            <CaptchaCounterList Include="x">
+                <CounterName>Total Captcha Verification Failed Requests</CounterName>
+                <CounterType>NumberOfItems32</CounterType>
+            </CaptchaCounterList>
+            <CaptchaCounterList Include="x">
+                <CounterName>Captcha Verification Failed/sec</CounterName>
+                <CounterType>RateOfCountsPerSecond32</CounterType>
+            </CaptchaCounterList>
+        </ItemGroup>
+        
+        <ItemGroup>
+            <!-- Authentication Requests -->
+            <MembershipCounterList Include="x">
+                <CounterName>Total Authentication Requests</CounterName>
+                <CounterType>NumberOfItems32</CounterType>
+            </MembershipCounterList>
+            <MembershipCounterList Include="x">
+                <CounterName>Authentication Requests/sec</CounterName>
+                <CounterType>RateOfCountsPerSecond32</CounterType>
+            </MembershipCounterList>
+            <!-- Authentication Failed Requests -->
+            <MembershipCounterList Include="x">
+                <CounterName>Total Authentication Failed Requests</CounterName>
+                <CounterType>NumberOfItems32</CounterType>
+            </MembershipCounterList>
+            <MembershipCounterList Include="x">
+                <CounterName>Authentication Failed Requests/sec</CounterName>
+                <CounterType>RateOfCountsPerSecond32</CounterType>
+            </MembershipCounterList>
+        </ItemGroup>
+
+        <PerformanceCounters.Remove CategoryName="Reusable Library Demo Memcached"/>
+        <PerformanceCounters.Add CategoryName="Reusable Library Demo Memcached"
+            CategoryHelp="Reusable Library Demo Memcached"
+            CounterList="@(MemcachedCounterList)" MultiInstance="true" />
+
+        <PerformanceCounters.Remove CategoryName="Reusable Library Demo Captcha"/>
+        <PerformanceCounters.Add CategoryName="Reusable Library Demo Captcha"
+            CategoryHelp="Reusable Library Demo Captcha"
+            CounterList="@(CaptchaCounterList)" MultiInstance="true" />
+
+        <PerformanceCounters.Remove CategoryName="Reusable Library Demo Membership"/>    
+        <PerformanceCounters.Add CategoryName="Reusable Library Demo Membership"
+            CategoryHelp="Reusable Library Demo Membership"
+            CounterList="@(MembershipCounterList)" MultiInstance="true" />
+    </Target>
+</Project>

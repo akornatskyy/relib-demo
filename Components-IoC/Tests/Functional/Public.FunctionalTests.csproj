@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AE0DD4AC-E91B-4F69-8B9F-64122813C9BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Public.FunctionalTests</RootNamespace>
+    <AssemblyName>Public.FunctionalTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ReusableLibrary.Abstractions, Version=1.0.6.46488, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\ReusableLibrary.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="ReusableLibrary.Supplemental, Version=1.0.6.46488, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\ReusableLibrary.Supplemental.dll</HintPath>
+    </Reference>
+    <Reference Include="ReusableLibrary.WatiN, Version=1.0.6.46488, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\ReusableLibrary.WatiN.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WatiN.Core, Version=2.0.20.0, Culture=neutral, PublicKeyToken=db7cfd3acb5ad44e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\WatiN.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit, Version=1.5.0.1479, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\xunit.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.extensions, Version=1.5.0.1479, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\xunit.extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Source\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Constants\EnvironmentNames.cs" />
+    <Compile Include="Constants\TraitNames.cs" />
+    <Compile Include="Fixtures\AccountTest.cs" />
+    <Compile Include="Fixtures\HomeTest.cs" />
+    <Compile Include="Fixtures\TicketsTest.cs" />
+    <Compile Include="Infrastructure\DefaultLifeTimeContainer.cs" />
+    <Compile Include="Infrastructure\DefaultPerFixtureLifeTimeTest.cs" />
+    <Compile Include="Infrastructure\DemoUserPerFixtureLifeTimeTest.cs" />
+    <Compile Include="Infrastructure\DomainModelFactory.cs" />
+    <Compile Include="Pages\Account\LogonPage.cs" />
+    <Compile Include="Pages\Account\MemberHomePage.cs" />
+    <Compile Include="Pages\Home\AboutPage.cs" />
+    <Compile Include="Pages\Home\HomePage.cs" />
+    <Compile Include="Pages\SitePage.cs" />
+    <Compile Include="Pages\Tickets\TicketsSearchPage.cs" />
+    <Compile Include="Pages\Tickets\TicketsListPage.cs" />
+    <Compile Include="Parts\HeaderMenuPart.cs" />
+    <Compile Include="Parts\HeaderQuickLinksMenuPart.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AbstractService.cs" />
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\TicketsService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UnitTests.xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\Tickets\Interface\Tickets.Interface.csproj">
+      <Project>{ED2228FD-A7DF-4E77-B7DB-77B9B1120AA4}</Project>
+      <Name>Tickets.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

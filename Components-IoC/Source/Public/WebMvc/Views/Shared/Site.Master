@@ -1,0 +1,47 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<%@ Import Namespace="Public.WebMvc.Views.Shared.Resources" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <link href="../../content/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="page">
+        <div id="header">
+            <div id="title">
+                <h1>
+                    <%= SiteMaster.Title %></h1>
+            </div>
+            <div id="logindisplay">
+                <% Html.RenderPartial("LogOnUser"); %>
+                <% Html.RenderPartial("LanguageBar"); %>
+            </div>
+            <div id="menucontainer">
+                <ul id="menu">
+                    <%= Html.MenuItem(SiteMaster.MenuHome, "index", "home")%>
+                    <%= Html.MenuItem(SiteMaster.MenuTickets, "index", "tickets")%>
+                    <%= Html.MenuItem(SiteMaster.MenuSubstitution, "cachesubstitution", "home")%>
+                    <%= Html.MenuItem(SiteMaster.MenuAbout, "about", "home")%>
+                </ul>
+            </div>
+        </div>
+        <div id="main">
+            <div id="placeholder">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+            <div id="footer">
+                <%= SiteMaster.Version %>
+                <%= MvcHtmlString.Create(ReusableLibrary.Abstractions.Helpers.AssemblyHelper.ToLongVersionString(typeof(LogonViewData).Assembly))%>
+            </div>
+        </div>
+    </div>
+    <script src="../../scripts/jquery-1.5.min.js" type="text/javascript"></script>
+    <script src="../../scripts/core.js" type="text/javascript"></script>
+    <script src="../../scripts/autocomplete.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="ScriptContent" runat="server" />
+</body>
+</html>

@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DescriptionAntiForgery" xml:space="preserve">
+    <value>The server was unable to process your request due to possible session termination.</value>
+  </data>
+  <data name="DescriptionHttp400" xml:space="preserve">
+    <value>The 400 Bad Request error is an HTTP status code that means that the request you sent to the website server (i.e. a request to load a web page) was somehow malformed therefore the server was unable to understand or process the request.</value>
+  </data>
+  <data name="DescriptionHttp403" xml:space="preserve">
+    <value>You do not have permission to view this directory or page using the credentials that you supplied.</value>
+  </data>
+  <data name="DescriptionHttp404" xml:space="preserve">
+    <value>Unfortunately the page you are looking for may have been removed, had its name changed, under construction or is temporarily unavailable. Try checking the web address for typos, please. We apologize for the inconvenience.</value>
+  </data>
+  <data name="DescriptionHttp500" xml:space="preserve">
+    <value>The web server encountered an unexpected condition that prevented it from fulfilling the request by the client for access to the requested URL.</value>
+  </data>
+  <data name="DescriptionIpPolicy" xml:space="preserve">
+    <value>One of your ip addresses does not match site policy. That prevents you from accessing our service.</value>
+  </data>
+  <data name="DescriptionLimitExceeded" xml:space="preserve">
+    <value>You have reached the maximum quota limit for incoming requests. Please try again later once the limit is reset for you.</value>
+  </data>
+  <data name="DescriptionRequestValidation" xml:space="preserve">
+    <value>The server was unable to process your request due to detected forbidden value. Please try to avoid using the "&amp;lt;" character and/or a character combination of "&amp;amp;#" within the URL and/or form values. Please check your request and try again.</value>
+  </data>
+  <data name="HeaderAntiForgery" xml:space="preserve">
+    <value>&lt;strong&gt;Oops! Anti forgery error.&lt;/strong&gt; Sorry, we can't process your request.</value>
+  </data>
+  <data name="HeaderHttp400" xml:space="preserve">
+    <value>&lt;strong&gt;Oops! Code 400.&lt;/strong&gt; Sorry, we can't process your request.</value>
+  </data>
+  <data name="HeaderHttp403" xml:space="preserve">
+    <value>&lt;strong&gt;Oops! Code 403.&lt;/strong&gt; Access is denied.</value>
+  </data>
+  <data name="HeaderHttp404" xml:space="preserve">
+    <value>&lt;strong&gt;Oops! Code 404.&lt;/strong&gt; Sorry, we can't find that page.</value>
+  </data>
+  <data name="HeaderHttp500" xml:space="preserve">
+    <value>&lt;strong&gt;Oops! Code 500.&lt;/strong&gt; Sorry, we can't process your request.</value>
+  </data>
+  <data name="HeaderIpPolicy" xml:space="preserve">
+    <value>&lt;strong&gt;Oops! Code 403.&lt;/strong&gt; IP Policy.</value>
+  </data>
+  <data name="HeaderLimitExceeded" xml:space="preserve">
+    <value>&lt;strong&gt;Oops! Code 403.&lt;/strong&gt; Quota Exceeded.</value>
+  </data>
+  <data name="HeaderRequestValidation" xml:space="preserve">
+    <value>&lt;strong&gt;Oops! Request validation error.&lt;/strong&gt; Sorry, we can't process your request.</value>
+  </data>
+  <data name="TitleAntiForgery" xml:space="preserve">
+    <value>Request antiforgery error</value>
+  </data>
+  <data name="TitleHttp400" xml:space="preserve">
+    <value>Bad request</value>
+  </data>
+  <data name="TitleHttp403" xml:space="preserve">
+    <value>Access denied</value>
+  </data>
+  <data name="TitleHttp404" xml:space="preserve">
+    <value>We are sorry, the page you requested cannot be found.</value>
+  </data>
+  <data name="TitleHttp500" xml:space="preserve">
+    <value>We are sorry, we can't process your request.</value>
+  </data>
+  <data name="TitleRequestValidation" xml:space="preserve">
+    <value>Request validation error</value>
+  </data>
+</root>
