@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Web Developer Express 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tickets.Interface", "Source\Tickets\Interface\Tickets.Interface.csproj", "{ED2228FD-A7DF-4E77-B7DB-77B9B1120AA4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tickets.Module", "Source\Tickets\Module\Tickets.Module.csproj", "{8456A589-E4E3-4E10-9776-648DC2137F49}"

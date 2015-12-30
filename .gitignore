@@ -1,3 +1,12 @@
 **/bin
 **/obj
 *.suo
+*.user
+Components-IoC/Lib/CommonServiceLocator*
+Components-IoC/Lib/EnterpriseLibrary*
+Components-IoC/Lib/Microsoft*
+Components-IoC/Lib/Moq*
+Components-IoC/Lib/Unity*
+Components-IoC/Lib/WatiN*
+Components-IoC/Lib/xunit*
+Components-IoC/Lib/repositories.config

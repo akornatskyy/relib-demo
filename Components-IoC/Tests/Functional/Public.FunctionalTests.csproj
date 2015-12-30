@@ -28,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -38,6 +39,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Interop.SHDocVw, Version=1.1.0.0, Culture=neutral, PublicKeyToken=db7cfd3acb5ad44e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\Lib\WatiN.2.0.50\lib\net40\Interop.SHDocVw.dll</HintPath>
+    </Reference>
     <Reference Include="ReusableLibrary.Abstractions, Version=1.0.6.46488, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\ReusableLibrary.Abstractions.dll</HintPath>
@@ -64,15 +70,15 @@
     <Reference Include="System.Xml" />
     <Reference Include="WatiN.Core, Version=2.0.20.0, Culture=neutral, PublicKeyToken=db7cfd3acb5ad44e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Lib\WatiN.Core.dll</HintPath>
+      <HintPath>..\..\Lib\WatiN.2.0.50\lib\net40\WatiN.Core.dll</HintPath>
     </Reference>
-    <Reference Include="xunit, Version=1.5.0.1479, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+    <Reference Include="xunit, Version=1.8.0.1545, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Lib\xunit.dll</HintPath>
+      <HintPath>..\..\Lib\xunit.1.8.0.1545\lib\xunit.dll</HintPath>
     </Reference>
-    <Reference Include="xunit.extensions, Version=1.5.0.1479, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+    <Reference Include="xunit.extensions, Version=1.8.0.1545, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Lib\xunit.extensions.dll</HintPath>
+      <HintPath>..\..\Lib\xunit.extensions.1.8.0.1545\lib\xunit.extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +110,7 @@
     <Compile Include="Services\TicketsService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="UnitTests.xunit" />
   </ItemGroup>
   <ItemGroup>
