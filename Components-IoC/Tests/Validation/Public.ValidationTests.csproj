@@ -53,13 +53,11 @@
     <Reference Include="Microsoft.Practices.Unity.Interception">
       <HintPath>..\..\Lib\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.dll</HintPath>
     </Reference>
-    <Reference Include="ReusableLibrary.Abstractions, Version=1.0.9.52627, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Lib\ReusableLibrary.Abstractions.dll</HintPath>
+    <Reference Include="ReusableLibrary.Abstractions">
+      <HintPath>..\..\Lib\ReusableLibrary.Abstractions.1.1.5.1\lib\net20\ReusableLibrary.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="ReusableLibrary.Supplemental, Version=1.0.9.52627, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Lib\ReusableLibrary.Supplemental.dll</HintPath>
+    <Reference Include="ReusableLibrary.Supplemental">
+      <HintPath>..\..\Lib\ReusableLibrary.Supplemental.1.1.5.1\lib\net40\ReusableLibrary.Supplemental.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">

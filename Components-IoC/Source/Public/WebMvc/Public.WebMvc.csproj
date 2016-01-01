@@ -75,36 +75,36 @@
       <HintPath>..\..\..\Lib\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ReusableLibrary.Abstractions, Version=1.1.5.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Lib\ReusableLibrary.Abstractions.1.1.5.0\lib\net20\ReusableLibrary.Abstractions.dll</HintPath>
+    <Reference Include="ReusableLibrary.Abstractions, Version=1.1.5.1, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Lib\ReusableLibrary.Abstractions.1.1.5.1\lib\net20\ReusableLibrary.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ReusableLibrary.Captcha, Version=1.1.2.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Lib\ReusableLibrary.Captcha.dll</HintPath>
-    </Reference>
-    <Reference Include="ReusableLibrary.EntLib, Version=1.1.5.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Lib\ReusableLibrary.EntLib.1.1.5.0\lib\net40\ReusableLibrary.EntLib.dll</HintPath>
+    <Reference Include="ReusableLibrary.Captcha, Version=1.1.5.1, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Lib\ReusableLibrary.Captcha.1.1.5.1\lib\net40\ReusableLibrary.Captcha.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ReusableLibrary.Memcached, Version=1.1.5.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Lib\ReusableLibrary.Memcached.1.1.5.0\lib\net20\ReusableLibrary.Memcached.dll</HintPath>
+    <Reference Include="ReusableLibrary.EntLib, Version=1.1.5.1, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Lib\ReusableLibrary.EntLib.1.1.5.1\lib\net40\ReusableLibrary.EntLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ReusableLibrary.Memcached, Version=1.1.5.1, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Lib\ReusableLibrary.Memcached.1.1.5.1\lib\net20\ReusableLibrary.Memcached.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ReusableLibrary.Supplemental, Version=1.0.4.43411, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Lib\ReusableLibrary.Supplemental.dll</HintPath>
     </Reference>
-    <Reference Include="ReusableLibrary.Unity, Version=1.1.5.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Lib\ReusableLibrary.Unity.1.1.5.0\lib\net40\ReusableLibrary.Unity.dll</HintPath>
+    <Reference Include="ReusableLibrary.Unity, Version=1.1.5.1, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Lib\ReusableLibrary.Unity.1.1.5.1\lib\net40\ReusableLibrary.Unity.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ReusableLibrary.Web, Version=1.1.5.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Lib\ReusableLibrary.Web.1.1.5.0\lib\net40\ReusableLibrary.Web.dll</HintPath>
+    <Reference Include="ReusableLibrary.Web, Version=1.1.5.1, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Lib\ReusableLibrary.Web.1.1.5.1\lib\net40\ReusableLibrary.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ReusableLibrary.Web.Mvc, Version=1.1.5.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Lib\ReusableLibrary.Web.Mvc.1.1.5.0\lib\net40\ReusableLibrary.Web.Mvc.dll</HintPath>
+    <Reference Include="ReusableLibrary.Web.Mvc, Version=1.1.5.1, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Lib\ReusableLibrary.Web.Mvc.1.1.5.1\lib\net40\ReusableLibrary.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
