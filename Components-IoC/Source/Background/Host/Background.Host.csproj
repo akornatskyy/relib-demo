@@ -49,13 +49,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Lib\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="ReusableLibrary.Host, Version=1.0.4.43443, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Lib\ReusableLibrary.Host.dll</HintPath>
+    <Reference Include="ReusableLibrary.Abstractions, Version=1.1.5.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Lib\ReusableLibrary.Abstractions.1.1.5.0\lib\net20\ReusableLibrary.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ReusableLibrary.Unity, Version=1.0.4.43829, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Lib\ReusableLibrary.Unity.dll</HintPath>
+    <Reference Include="ReusableLibrary.Host, Version=1.1.5.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Lib\ReusableLibrary.Host.1.1.5.0\lib\net20\ReusableLibrary.Host.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ReusableLibrary.Unity, Version=1.1.5.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Lib\ReusableLibrary.Unity.1.1.5.0\lib\net40\ReusableLibrary.Unity.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">

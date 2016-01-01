@@ -36,13 +36,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ReusableLibrary.Abstractions, Version=1.0.4.43443, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Lib\ReusableLibrary.Abstractions.dll</HintPath>
+    <Reference Include="ReusableLibrary.Abstractions, Version=1.1.5.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Lib\ReusableLibrary.Abstractions.1.1.5.0\lib\net20\ReusableLibrary.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ReusableLibrary.Supplemental, Version=1.0.4.43443, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Lib\ReusableLibrary.Supplemental.dll</HintPath>
+    <Reference Include="ReusableLibrary.Supplemental, Version=1.1.5.0, Culture=neutral, PublicKeyToken=30c95d36f9c3449a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Lib\ReusableLibrary.Supplemental.1.1.5.0\lib\net40\ReusableLibrary.Supplemental.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -115,6 +115,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Repository\Tickets.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Tickets.designer.cs</LastGenOutput>
