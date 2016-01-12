@@ -2,5 +2,5 @@
 
 CALL Variables.cmd
 
-msbuild ReusableLibrary.Demo.msbuild /t:Build;Test;Integration;Package /p:CCNetNumericLabel=%Build% /p:BuildType=Release
+msbuild ReusableLibrary.Demo.msbuild /t:Prepare;Build /p:Build=%Build% /p:BuildType=Release
 pause

@@ -25,7 +25,6 @@
     </PropertyGroup>
 
     <Target Name="Init">
-        <Message Text="Initializing Folders Structure" />
         <RemoveDir Directories="$(Artifacts)\bin;$(Artifacts)\tests" />
         <MakeDir Directories="$(Artifacts);$(Artifacts)\bin;$(Artifacts)\tests;$(Artifacts)\delivery;$(Artifacts)\delivery\archive" />
         <Time>
@@ -36,22 +35,6 @@
             <Output TaskParameter="Minute" PropertyName="Minute" />
             <Output TaskParameter="Second" PropertyName="Second" />
         </Time>
-
-        <SvnVersion LocalPath="$(SourceRoot)"
-                    Condition="Exists('$(ProgramFiles)\subversion\bin\svn.exe')">
-            <Output TaskParameter="Revision" PropertyName="Revision" />
-        </SvnVersion>
-        <PropertyGroup>
-            <VersionScript>
-                public static string ScriptMain() {
-                int r = $(Revision);
-                return (r > 60000 ? r - 60000 : r).ToString();
-                }
-            </VersionScript>
-        </PropertyGroup>
-        <Script Language="C#" Code="$(VersionScript)">
-            <Output TaskParameter="ReturnValue" PropertyName="Revision" />
-        </Script>
 
         <Time Format="yyyy-MM-dd">
             <Output TaskParameter="FormattedTime" PropertyName="BuildDate" />
@@ -95,7 +78,7 @@
                       AssemblyConfiguration="$(Configuration)"
                       AssemblyVersion="$(Version)"
                       AssemblyFileVersion="$(Version)"
-                      AssemblyCopyright="$(Copyright)"/>
+                      AssemblyCopyright="Copyright 2010 - $(Year). $(Copyright)"/>
     </Target>
 
     <Target Name="Configure">
@@ -110,7 +93,12 @@
            PhysicalPath="$(SourceRoot)\Source\Public\WebMvc" TargetPath="$(Artifacts)\Bin\WebMvc"
            Force="true" Debug="false" Updateable="false" />
     </Target>
-    
+
+    <Target Name="Prepare">
+        <Exec Command="nuget.exe restore &quot;$(SourceRoot)&quot; -ConfigFile ..\nuget.config -NonInteractive"
+              IgnoreStandardErrorWarningFormat="true"/>
+    </Target>
+  
     <Target Name="Package" DependsOnTargets="PackageCore;PackageBin;PackageSource">
     </Target>
 
@@ -147,7 +135,7 @@
             <DefaultExclude Include="$(SourceRoot)\**\*.user" />
             <DefaultExclude Include="$(SourceRoot)\**\*.suo" />
             <DefaultExclude Include="$(SourceRoot)\**\*.cache" />
-            <DefaultExclude Include="$(SourceRoot)\**\.svn\**" />
+            <DefaultExclude Include="$(SourceRoot)\Lib\**" />
         </ItemGroup>
         <ItemGroup>
             <SourceZipFiles Include="$(SourceRoot)\**" Exclude="@(DefaultExclude)" />
