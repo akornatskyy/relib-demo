@@ -4,7 +4,9 @@ clone_depth: 1
 before_build:
 - cmd: >-
     cd Components-IoC
+
     nuget restore
+
     cd ..
 build:
   verbosity: minimal
