@@ -3,7 +3,8 @@
     <Import Project="Master.Targets" />
     <UsingTask AssemblyFile="Sdc\Microsoft.Sdc.Tasks.dll" TaskName="Microsoft.Sdc.Tasks.PerformanceCounters.Add"/>
     <UsingTask AssemblyFile="Sdc\Microsoft.Sdc.Tasks.dll" TaskName="Microsoft.Sdc.Tasks.PerformanceCounters.Remove"/>
-    
+    <UsingTask AssemblyFile="$(SourceRoot)\Lib\xunit.1.9.2\lib\net20\xunit.runner.msbuild.dll" TaskName="Xunit.Runner.MSBuild.xunit"/>
+  
     <PropertyGroup>
         <Company></Company>
         <AppName>ReusableLibrary.Demo</AppName>
