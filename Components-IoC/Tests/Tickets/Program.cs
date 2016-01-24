@@ -11,8 +11,9 @@ namespace Tickets.Tests
             {
                 test.RetrieveMultiple(DomainModelFactory.RandomTicketSpecifications().First());
             }
-            //var test = new Profiling.TicketRepositoryProfilingTest();
-            //test.UpdateTicket(8);
+
+            // var test = new Profiling.TicketRepositoryProfilingTest();
+            // test.UpdateTicket(8);
         }
     }
 }
