@@ -49,6 +49,7 @@ namespace Tickets.Module.Repository.Mock
                     new TicketType(4, "Network")
                 });
             }
+
             return list.AsReadOnly();
         }
 
