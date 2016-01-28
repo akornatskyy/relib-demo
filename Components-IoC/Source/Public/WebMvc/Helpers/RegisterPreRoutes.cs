@@ -18,7 +18,7 @@ namespace Public.WebMvc.Helpers
                 {
                     controller = "Home",
                     action = "About",
-                    id = "",
+                    id = string.Empty,
                     language = Localization.DefaultLanguage,
                     scheme = "https"
                 },
@@ -26,14 +26,13 @@ namespace Public.WebMvc.Helpers
                 {
                     scheme = new SchemeRouteConstraint(),
                     language = new ChoiceRouteConstraint(Localization.Languages)
-                }
-            );
+                });
             routes.MapRoute("DomainExample", "{language}/welcome-domain",
                 new
                 {
                     controller = "Home",
                     action = "About",
-                    id = "",
+                    id = string.Empty,
                     language = Localization.DefaultLanguage,
                     domain = "example.org"
                 },
@@ -41,14 +40,13 @@ namespace Public.WebMvc.Helpers
                 {
                     domain = new DomainRouteConstraint(),
                     language = new ChoiceRouteConstraint(Localization.Languages)
-                }
-            );
+                });
             routes.MapRoute("SchemeAndDomainExample", "{language}/welcome",
                 new
                 {
                     controller = "Home",
                     action = "About",
-                    id = "",
+                    id = string.Empty,
                     language = Localization.DefaultLanguage,
                     scheme = "https",
                     domain = "example.org"
@@ -58,8 +56,7 @@ namespace Public.WebMvc.Helpers
                     scheme = new SchemeRouteConstraint(),
                     domain = new DomainRouteConstraint(),
                     language = new ChoiceRouteConstraint(Localization.Languages)
-                }
-            );
+                });
         }
 
         #endregion
