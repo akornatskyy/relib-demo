@@ -38,7 +38,7 @@ namespace Public.WebMvc.Helpers
                 {
                     controller = "Home",
                     action = "CacheSubstitution",
-                    id = "",
+                    id = string.Empty,
                     language = Localization.DefaultLanguage,
                 }, handler);
         }
