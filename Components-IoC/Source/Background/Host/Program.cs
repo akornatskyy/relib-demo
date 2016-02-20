@@ -5,7 +5,7 @@ namespace Tickets.Background
 {
     public static class Program
     {
-        static void Main()
+        internal static void Main()
         {
             UnityBootstrapLoader.Initialize(UnityBootstrapLoader.LoadConfigFilesFromAppSettings());
             ConsoleLauncher.Run();
