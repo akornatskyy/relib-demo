@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master"
     Inherits="System.Web.Mvc.ViewPage" %>
-
 <%@ Import Namespace="Public.WebMvc.Views.Error.Resources" %>
 <asp:Content ID="indexTitle" ContentPlaceHolderID="TitleContent"
     runat="server">

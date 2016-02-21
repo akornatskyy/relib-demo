@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master"
     Inherits="System.Web.Mvc.ViewPage<TicketSearchViewData>" %>
-
 <%@ Import Namespace="Public.WebMvc.Views.Tickets.Resources" %>
 <asp:Content ID="indexTitle" ContentPlaceHolderID="TitleContent"
     runat="server">

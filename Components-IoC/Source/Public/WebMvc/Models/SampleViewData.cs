@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Public.WebMvc.Models
+﻿namespace Public.WebMvc.Models
 {
     public sealed class SampleViewData
     {

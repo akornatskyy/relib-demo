@@ -1,6 +1,7 @@
 ﻿using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
+
 using ReusableLibrary.Abstractions.Cryptography;
 using ReusableLibrary.Abstractions.Models;
 using ReusableLibrary.Abstractions.Net;

@@ -1,10 +1,11 @@
 ﻿using System.Configuration;
 using System.Web.Mvc;
+
 using ReusableLibrary.Abstractions.Bootstrapper;
 using ReusableLibrary.Abstractions.Caching;
 using ReusableLibrary.Captcha;
 using ReusableLibrary.Web.Mvc.Integration;
-using IoC = ReusableLibrary.Abstractions.IoC;
+using DependencyResolver = ReusableLibrary.Abstractions.IoC.DependencyResolver;
 
 namespace Public.WebMvc.Helpers
 {
@@ -31,7 +32,7 @@ namespace Public.WebMvc.Helpers
 
             //// 2. Using factory method to supply challenge code cache
             CaptchaBuilder.Current.Setup(new BitmapCaptchaFactory(
-                new CaptchaOptions(options), () => IoC::DependencyResolver.Resolve<ICache>("Captcha")));
+                new CaptchaOptions(options), () => DependencyResolver.Resolve<ICache>("Captcha")));
 
             options = ConfigurationManager.AppSettings["CaptchaOptions2"] ?? string.Empty;
 
@@ -39,7 +40,7 @@ namespace Public.WebMvc.Helpers
             ////    new CaptchaOptions(options)));
 
             CaptchaBuilder.Current.Setup(new BitmapCaptchaFactory(
-                new CaptchaOptions(options), () => IoC::DependencyResolver.Resolve<ICache>("Captcha")));
+                new CaptchaOptions(options), () => DependencyResolver.Resolve<ICache>("Captcha")));
         }
 
         #endregion

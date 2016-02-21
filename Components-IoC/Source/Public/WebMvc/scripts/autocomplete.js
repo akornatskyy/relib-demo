@@ -28,8 +28,8 @@ function register() {
 
 document.onkeydown = function(event) {
     if (window.event) event = window.event;
-    if (event.ctrlKey && event.keyCode != 17 /* Ctrl */
-        || event.altKey && event.keyCode != 18 /* Alt */) {
+    if (event.ctrlKey && event.keyCode !== 17 /* Ctrl */
+        || event.altKey && event.keyCode !== 18 /* Alt */) {
         jQuery.fn.f = doIgnore;
         jQuery.fn.f1 = doIgnore;
         jQuery.fn.f2 = doIgnore;
@@ -101,21 +101,21 @@ function autoFillScreen() {
 
 function isFunction(name) {
     var type = eval("typeof(" + name + ")");
-    return type == 'function';
+    return type === 'function';
 }
 
 function doReplace(selector, value) {
     var elements = $(selector+":not(:hidden)", this);
-    if (elements.length == 0) return this;
+    if (elements.length === 0) return this;
     var element = elements[0];
-    if (element.type == "checkbox" | element.type == "radio") {
+    if (element.type === "checkbox" | element.type === "radio") {
         element.checked = value;
         elements.trigger('click');
         element.checked = value;
     }
     else {
         element.value = value;
-        if (element.tagName == 'SELECT') {
+        if (element.tagName === 'SELECT') {
             elements.trigger('click');
         }
     }
@@ -125,16 +125,16 @@ function doReplace(selector, value) {
 
 function doClear(selector) {
     var elements = $(selector+":not(:hidden)", this);
-    if (elements.length == 0) return this;
+    if (elements.length === 0) return this;
     var element = elements[0];
-    if (element.type == "checkbox") {
+    if (element.type === "checkbox") {
         element.checked = false;
         elements.trigger('click');
         element.checked = false;
     }
     else {
         element.val("");
-        if (element.tagName == 'SELECT') {
+        if (element.tagName === 'SELECT') {
             elements.trigger('click');
         }        
     }
@@ -143,7 +143,7 @@ function doClear(selector) {
 }
 
 function doSubmit(selector) {
-    $(selector != null ? selector : "input[type='submit']", this).click();
+    $(selector !== null ? selector : "input[type='submit']", this).click();
 }
 
 function doIgnore() {
@@ -157,13 +157,13 @@ function nextBool() {
 }
 
 function nextWord(words) {
-    words = words != null ? words : g_words;
+    words = words !== null ? words : g_words;
     return words[nextInt(0, words.length - 1)];
 }
 
 function nextSentence(wordsNumber) {
     var sentence = nextWord();
-    for (i = 1; i < wordsNumber; i++) {
+    for (var i = 1; i < wordsNumber; i++) {
         sentence += " " + nextWord();
     }
 
@@ -171,16 +171,17 @@ function nextSentence(wordsNumber) {
 }
 
 function nextInt(min, max) {
-    if (min == max) return min;
+    if (min === max) return min;
     if (min > max) return nextInt(max, min);
     return min + Math.floor(Math.random() * (max - min + 1));
 }
 
 function nextOption(id, all) {
+    var start;
     if (all) start = 0; else start = 1;
     var options = $(id + " option");
     var count = options.length;
-    if (count == 0)
+    if (count === 0)
         return 0;
     return options[nextInt(start, count-1)].value;
 }

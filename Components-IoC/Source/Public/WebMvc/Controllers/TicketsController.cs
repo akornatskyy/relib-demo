@@ -1,33 +1,35 @@
 ﻿using System.Web.Mvc;
-using Public.WebMvc.Models;
+
 using ReusableLibrary.Abstractions.Services;
 using ReusableLibrary.Web.Mvc;
+
+using Public.WebMvc.Constants;
+using Public.WebMvc.Models;
 using Tickets.Interface.Models;
 using Tickets.Interface.Services;
 
 namespace Public.WebMvc.Controllers
 {
-    [Authorize,
-    OutputCache(CacheProfile = Constants.CacheProfileNames.PrivateContent)]
+    [Authorize, OutputCache(CacheProfile = CacheProfileNames.PrivateContent)]
     public class TicketsController : AbstractController
     {
-        private readonly IValidationService m_validationService;
-        private readonly IMementoService m_mementoService;
-        private readonly ITicketService m_ticketService;
+        private readonly IValidationService validationService;
+        private readonly IMementoService mementoService;
+        private readonly ITicketService ticketService;
 
         public TicketsController(IValidationService validationService,
             IMementoService mementoService,
             ITicketService ticketService)
         {
-            m_validationService = validationService;
-            m_mementoService = mementoService;
-            m_ticketService = ticketService;
+            this.validationService = validationService;
+            this.mementoService = mementoService;
+            this.ticketService = ticketService;
         }
 
         [HttpGet,
         /*OutputCache(VaryByCustom = Constants.VaryByCustomNames.Tickets, 
             CacheProfile = Constants.CacheProfileNames.StaticPerUserContent),*/
-        OutputCache(CacheProfile = Constants.CacheProfileNames.PrivateContent)]
+        OutputCache(CacheProfile = CacheProfileNames.PrivateContent)]
         public ActionResult Index()
         {
             // If you want to use MementoService set output cache to use
@@ -35,7 +37,7 @@ namespace Public.WebMvc.Controllers
             // If your preference is better caching, than StaticPerUserContent.
             return View(AddViewDataLists(new TicketSearchViewData() 
             {
-                Specification = m_mementoService.Load<TicketSpecification>()
+                Specification = mementoService.Load<TicketSpecification>()
             }));
         }
 
@@ -44,8 +46,8 @@ namespace Public.WebMvc.Controllers
         {
             var viewData = new TicketSearchViewData();
             if (!TryUpdateModel(viewData.Specification)
-                | !m_validationService.Validate(viewData.Specification)
-                || !m_mementoService.Save(viewData.Specification))
+                | !validationService.Validate(viewData.Specification)
+                || !mementoService.Save(viewData.Specification))
             {
                 AddViewDataLists(viewData);
                 return View(viewData);
@@ -71,7 +73,7 @@ namespace Public.WebMvc.Controllers
         {
             var viewData = new TicketDetailsViewData()
             {
-                Details = m_ticketService.LoadTicket(id)
+                Details = ticketService.LoadTicket(id)
             };
             if (viewData.Details == null)
             {
@@ -86,7 +88,7 @@ namespace Public.WebMvc.Controllers
             var viewData = new TicketListViewData()
             {
                 Specification = specification,
-                Items = m_ticketService.SearchTickets(specification, pageIndex, pageSize)
+                Items = ticketService.SearchTickets(specification, pageIndex, pageSize)
             };
             if (viewData.Items == null)
             {
@@ -100,10 +102,10 @@ namespace Public.WebMvc.Controllers
         {
             if (viewData.Specification.TicketTypeId == 0)
             {
-                viewData.Specification.TicketTypeId = m_ticketService.DefaultTicketType.Key;
+                viewData.Specification.TicketTypeId = ticketService.DefaultTicketType.Key;
             }
 
-            viewData.TicketTypeSelectList = m_ticketService.TicketTypes.ToSelectList(viewData.Specification.TicketTypeId);
+            viewData.TicketTypeSelectList = ticketService.TicketTypes.ToSelectList(viewData.Specification.TicketTypeId);
             return viewData;
         }
     }

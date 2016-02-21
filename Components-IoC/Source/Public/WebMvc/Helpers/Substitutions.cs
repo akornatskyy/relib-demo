@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Globalization;
 using System.Web;
 using System.Web.Routing;
+
 using ReusableLibrary.Web.Mvc.Integration;
 
 namespace Public.WebMvc.Helpers
@@ -22,7 +24,7 @@ namespace Public.WebMvc.Helpers
 
         public static string CurrentTimeCallback(HttpContextBase context, object state)
         {
-            return DateTime.Now.ToString();
+            return DateTime.Now.ToString(CultureInfo.InvariantCulture);
         }
     }
 }

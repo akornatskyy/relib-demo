@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master"
     Inherits="System.Web.Mvc.ViewPage<LogonViewData>" %>
-
 <%@ Import Namespace="Public.WebMvc.Views.Account.Resources" %>
 <asp:Content ID="loginTitle" ContentPlaceHolderID="TitleContent"
     runat="server">

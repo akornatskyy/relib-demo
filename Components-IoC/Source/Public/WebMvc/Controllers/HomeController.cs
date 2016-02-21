@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
+
 using ReusableLibrary.Web.Integration;
 using ReusableLibrary.Web.Mvc;
 
+using Public.WebMvc.Constants;
+
 namespace Public.WebMvc.Controllers
 {
-    [OutputCache(CacheProfile = Constants.CacheProfileNames.None)]
+    [OutputCache(CacheProfile = CacheProfileNames.None)]
     public class HomeController : Controller
     {
         [HttpGet,
-         OutputCache(VaryByCustom = Constants.VaryByCustomNames.Home,
-            CacheProfile = Constants.CacheProfileNames.StaticPerUserContent)]
+         OutputCache(VaryByCustom = VaryByCustomNames.Home,
+            CacheProfile = CacheProfileNames.StaticPerUserContent)]
         public ActionResult Index()
         {
             ViewData["Message"] = Properties.Resources.Welcome;
@@ -20,15 +23,15 @@ namespace Public.WebMvc.Controllers
         }
 
         [HttpGet,
-         OutputCache(VaryByCustom = Constants.VaryByCustomNames.Home,
-            CacheProfile = Constants.CacheProfileNames.StaticPerUserContent)]
+         OutputCache(VaryByCustom = VaryByCustomNames.Home,
+            CacheProfile = CacheProfileNames.StaticPerUserContent)]
         public ActionResult About()
         {
             return View();
         }
 
         [HttpGet]
-        [OutputCache(CacheProfile = Constants.CacheProfileNames.StaticContent)]
+        [OutputCache(CacheProfile = CacheProfileNames.StaticContent)]
         public ActionResult CacheSubstitution()
         {
             return View();
@@ -55,7 +58,7 @@ namespace Public.WebMvc.Controllers
         [HttpGet]
         public ActionResult InternalError()
         {
-            throw new ArgumentNullException("test");
+            throw new NotImplementedException();
         }
 
         [HttpGet]

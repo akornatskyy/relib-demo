@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master"
     Inherits="System.Web.Mvc.ViewPage<RegisterViewData>" %>
-
 <%@ Import Namespace="Public.WebMvc.Views.Account.Resources" %>
 <asp:Content ID="registerTitle" ContentPlaceHolderID="TitleContent"
     runat="server">

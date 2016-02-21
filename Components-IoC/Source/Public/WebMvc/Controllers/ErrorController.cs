@@ -1,11 +1,14 @@
 ﻿using System.Net;
 using System.Web.Mvc;
+
 using ReusableLibrary.Web;
 using ReusableLibrary.Web.Mvc;
 
+using Public.WebMvc.Constants;
+
 namespace Public.WebMvc.Controllers
 {
-    [OutputCache(CacheProfile = Constants.CacheProfileNames.None)]
+    [OutputCache(CacheProfile = CacheProfileNames.None)]
     public sealed class ErrorController : Controller
     {
         [HttpGet]
@@ -41,7 +44,7 @@ namespace Public.WebMvc.Controllers
         }
 
         [HttpGet,
-        OutputCache(CacheProfile = Constants.CacheProfileNames.None)]
+        OutputCache(CacheProfile = CacheProfileNames.None)]
         public ActionResult HttpAntiForgery()
         {
             HttpContext.ResetCookies();

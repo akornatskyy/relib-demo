@@ -3,11 +3,11 @@
         async: false,
         cache: false
     });
-    $(document).ajaxError(function(event, response, settings) {
-        if (response.status == 400) window.location = '/en/error/http400';
-        else if (response.status == 403) window.location = '/en/error/http403';
-        else if (response.status == 404) window.location = '/en/error/http404';
-        else if (response.status == 500) window.location = '/en/error/http500';
+    $(document).ajaxError(function(event, response) {
+        if (response.status === 400) window.location = '/en/error/http400';
+        else if (response.status === 403) window.location = '/en/error/http403';
+        else if (response.status === 404) window.location = '/en/error/http404';
+        else if (response.status === 500) window.location = '/en/error/http500';
     });
 }
 
@@ -18,7 +18,7 @@ String.prototype.format = function() {
 }
 
 function attachCaptchaReload() {
-    $("#captcha").live("click", function(event) {
+    $("#captcha").live("click", function() {
         var r = "r=" + Math.round(Math.random() * 1000);
         var parts = this.src.split("?");
         if (parts.length > 1) {
@@ -39,7 +39,7 @@ function ajaxPostOnSubmit(selector) {
         this.disabled = true;
         var form = $("form");
         var url = form.attr("action");
-        var data = null;
+        var data;
         if (this.name) {
             data = form.serializeArray();
             data.push({ name: this.name, value: this.value });
@@ -47,7 +47,7 @@ function ajaxPostOnSubmit(selector) {
         }
         else
             data = form.serialize();
-        if (form.attr("method").toLowerCase() == "post") {
+        if (form.attr("method").toLowerCase() === "post") {
             $.post(url, data, handleAjaxResponse);
         }
         else {
@@ -61,7 +61,7 @@ function handleAjaxResponse(result, textStatus, response, placeHolder) {
     if (!placeHolder) {
         placeHolder = "#placeholder";
     }
-    if (response.status == 207)
+    if (response.status === 207)
         window.location = response.getResponseHeader('Location');
     else {
         $(placeHolder).html(result);

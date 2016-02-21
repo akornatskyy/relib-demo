@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Public.WebMvc.Constants
+﻿namespace Public.WebMvc.Constants
 {
     public static class VaryByCustomNames
     {

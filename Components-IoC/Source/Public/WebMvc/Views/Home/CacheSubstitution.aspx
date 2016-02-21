@@ -2,7 +2,7 @@
 
 <%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master"
     Inherits="System.Web.Mvc.ViewPage" %>
-
+<%@ Import Namespace="System.Globalization" %>
 <%@ Import Namespace="Public.WebMvc.Views.Home.Resources" %>
 <asp:Content ID="aboutTitle" ContentPlaceHolderID="TitleContent"
     runat="server">
@@ -22,7 +22,7 @@
         </p>
         <p>
             <%= CacheSubstitution.RenderedAt %>
-            <%= DateTime.Now.ToString() %>.
+            <%= DateTime.Now.ToString(CultureInfo.CurrentUICulture) %>.
         </p>
     </div>
 </asp:Content>

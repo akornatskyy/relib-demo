@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using Public.WebMvc.Constants;
 using ReusableLibrary.Abstractions.Bootstrapper;
 using ReusableLibrary.Captcha;
 using ReusableLibrary.Supplemental.System;
@@ -7,7 +8,7 @@ using ReusableLibrary.Web;
 
 namespace Public.WebMvc
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         public override string GetVaryByCustomString(HttpContext context, string custom)
         {
@@ -17,10 +18,10 @@ namespace Public.WebMvc
                 return key;
             }
 
-            var secure = Request.IsSchemeHttps() && custom.In(Constants.VaryByCustomNames.VaryByScheme)
+            var secure = Request.IsSchemeHttps() && custom.In(VaryByCustomNames.VaryByScheme)
                 ? "s" : null;
 
-            var user = custom.In(Constants.VaryByCustomNames.VaryByUser)
+            var user = custom.In(VaryByCustomNames.VaryByUser)
                 ? string.Concat(custom, context.User.Identity.Name) : null;
 
             return string.Concat(secure, user);

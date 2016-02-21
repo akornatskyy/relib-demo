@@ -1,6 +1,6 @@
 <%@ OutputCache VaryByParam="none" Shared="true" Duration="900" %>
-<%@ Import Namespace="Public.WebMvc.Views.Tickets.Resources" %>
 <%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
+<%@ Import Namespace="Public.WebMvc.Views.Tickets.Resources" %>
 <tr>
     <th>
     </th>

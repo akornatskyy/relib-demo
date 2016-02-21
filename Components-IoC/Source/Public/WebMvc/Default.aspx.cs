@@ -2,11 +2,12 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.UI;
+
 using ReusableLibrary.Web.Mvc.Integration;
 
-namespace WebMvc
+namespace Public.WebMvc
 {
-    public partial class Default : Page
+    public class Default : Page
     {
         public override void ProcessRequest(HttpContext context)
         {
