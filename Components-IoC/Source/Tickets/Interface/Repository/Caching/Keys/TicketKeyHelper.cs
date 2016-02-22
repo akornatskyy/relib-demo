@@ -1,5 +1,7 @@
 ﻿using System.Globalization;
+
 using ReusableLibrary.Abstractions.Repository;
+
 using Tickets.Interface.Models;
 
 namespace Tickets.Interface.Repository.Caching.Keys

@@ -1,4 +1,5 @@
 ﻿using System;
+
 using ReusableLibrary.Abstractions.Models;
 
 namespace Tickets.Interface.Models

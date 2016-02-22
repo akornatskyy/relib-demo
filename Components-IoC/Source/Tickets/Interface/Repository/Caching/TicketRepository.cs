@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using ReusableLibrary.Abstractions.Caching;
 using ReusableLibrary.Abstractions.Repository;
 using ReusableLibrary.Supplemental.Caching;
+
 using Tickets.Interface.Models;
 using Tickets.Interface.Repository.Caching.Dependency;
+using Tickets.Interface.Repository.Caching.Keys;
 
 namespace Tickets.Interface.Repository.Caching
 {
     public sealed class TicketRepository : Decorated.TicketRepository
     {
-        private readonly ICache m_cache;
+        private readonly ICache cache;
 
         public TicketRepository(ITicketRepository innerRepository, ICache cache)
             : base(innerRepository)
         {
-            m_cache = cache;
+            this.cache = cache;
             SearchResultLifetime = TimeSpan.FromSeconds(10);
             ItemLifetime = TimeSpan.FromMinutes(1);
         }
@@ -36,26 +39,26 @@ namespace Tickets.Interface.Repository.Caching
 
         public override Ticket Retrieve(int identity)
         {
-            var key = Keys.TicketKeyHelper.Retrieve(identity);
-            return CacheHelper.Get(m_cache, key, () => base.Retrieve(identity), ItemLifetime);
+            var key = TicketKeyHelper.Retrieve(identity);
+            return CacheHelper.Get(cache, key, () => base.Retrieve(identity), ItemLifetime);
         }
 
         public override void UpdateTicket(string username, Ticket ticket)
         {
             base.UpdateTicket(username, ticket);
-            TicketDependencyHelper.Ticket(m_cache, ticket.TicketId);
+            TicketDependencyHelper.Ticket(cache, ticket.TicketId);
         }
 
         public override RetrieveMultipleResponse<TicketSearchResult> RetrieveMultiple(RetrieveMultipleRequest<TicketSpecification> request)
         {
-            var key = Keys.TicketKeyHelper.RetrieveMultiple(request);
-            return CacheHelper.Get(m_cache, key, () => base.RetrieveMultiple(request), SearchResultLifetime, TicketDependency());
+            var key = TicketKeyHelper.RetrieveMultiple(request);
+            return CacheHelper.Get(cache, key, () => base.RetrieveMultiple(request), SearchResultLifetime, TicketDependency());
         }
 
         private LinkedCacheDependency TicketDependency()
         {
-            return new LinkedCacheDependency(m_cache, 
-                Keys.TicketKeyHelper.TicketDependency(), 
+            return new LinkedCacheDependency(cache, 
+                TicketKeyHelper.TicketDependency(), 
                 DateTime.Now.Add(SearchResultLifetime));
         }
     }

@@ -5,19 +5,19 @@ namespace Tickets.Interface.Services.Audit
 {
     public sealed class MembershipService : Decorated.MembershipService
     {
-        private readonly MembershipInstrumentationProvider m_instrumentationProvider;
+        private readonly MembershipInstrumentationProvider instrumentationProvider;
 
         public MembershipService(MembershipInstrumentationProvider instrumentationProvider, IMembershipService inner)
             : base(inner)
         {
-            m_instrumentationProvider = instrumentationProvider;
+            this.instrumentationProvider = instrumentationProvider;
         }
 
         public override bool ValidateUser(UserCredentials credentials)
         {
             bool succeed = base.ValidateUser(credentials);
 
-            m_instrumentationProvider.FireAuthentication(succeed);
+            instrumentationProvider.FireAuthentication(succeed);
             
             return succeed;
         }

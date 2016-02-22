@@ -1,17 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+
 using ReusableLibrary.Abstractions.Repository;
+
 using Tickets.Interface.Models;
 
 namespace Tickets.Interface.Repository.Decorated
 {
     public abstract class TicketRepository : ITicketRepository
     {
-        private ITicketRepository m_innerRepository;
+        private readonly ITicketRepository innerRepository;
 
         protected TicketRepository(ITicketRepository innerRepository)
         {
-            m_innerRepository = innerRepository;
+            this.innerRepository = innerRepository;
         }
 
         #region ITicketRepository Members
@@ -19,25 +21,25 @@ namespace Tickets.Interface.Repository.Decorated
         [DebuggerStepThrough]
         public virtual void UpdateTicket(string username, Ticket ticket)
         {
-            m_innerRepository.UpdateTicket(username, ticket);
+            innerRepository.UpdateTicket(username, ticket);
         }
 
         [DebuggerStepThrough]
         public virtual void AddHistory(string username, TicketHistory history)
         {
-            m_innerRepository.AddHistory(username, history);
+            innerRepository.AddHistory(username, history);
         }
 
         [DebuggerStepThrough]
         public virtual IEnumerable<TicketType> ListTicketTypes(string languageCode)
         {
-            return m_innerRepository.ListTicketTypes(languageCode);
+            return innerRepository.ListTicketTypes(languageCode);
         }
 
         [DebuggerStepThrough]
         public virtual IDictionary<int, TicketType> MapTicketType(string languageCode)
         {
-            return m_innerRepository.MapTicketType(languageCode);
+            return innerRepository.MapTicketType(languageCode);
         }
 
         #endregion
@@ -47,7 +49,7 @@ namespace Tickets.Interface.Repository.Decorated
         [DebuggerStepThrough]
         public virtual Ticket Retrieve(int identity)
         {
-            return m_innerRepository.Retrieve(identity);
+            return innerRepository.Retrieve(identity);
         }
 
         #endregion
@@ -57,7 +59,7 @@ namespace Tickets.Interface.Repository.Decorated
         [DebuggerStepThrough]
         public virtual RetrieveMultipleResponse<TicketSearchResult> RetrieveMultiple(RetrieveMultipleRequest<TicketSpecification> request)
         {
-            return m_innerRepository.RetrieveMultiple(request);
+            return innerRepository.RetrieveMultiple(request);
         }
 
         #endregion

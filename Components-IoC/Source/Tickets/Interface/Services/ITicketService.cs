@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+
 using ReusableLibrary.Abstractions.Models;
+
 using Tickets.Interface.Models;
 
 namespace Tickets.Interface.Services

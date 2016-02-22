@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ReusableLibrary.Abstractions.Repository;
+﻿using ReusableLibrary.Abstractions.Repository;
 
 namespace Tickets.Interface.WorkItem.Rules
 {

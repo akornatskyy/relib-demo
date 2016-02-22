@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Tickets.Interface.Instrumentation
+﻿namespace Tickets.Interface.Instrumentation
 {
     public static class InstrumentationNames
     {

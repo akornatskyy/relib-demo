@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+
 using Tickets.Interface.Models;
 
 namespace Tickets.Interface.Repository.Decorated
 {
     public abstract class MembershipRepository : IMembershipRepository
     {
-        private IMembershipRepository m_innerRepository;
+        private readonly IMembershipRepository innerRepository;
 
         protected MembershipRepository(IMembershipRepository innerRepository)
         {
-            m_innerRepository = innerRepository;
+            this.innerRepository = innerRepository;
         }
 
         #region IMembershipRepository Members
@@ -18,25 +19,25 @@ namespace Tickets.Interface.Repository.Decorated
         [DebuggerStepThrough]
         public void ValidateUser(UserCredentials userCredentials)
         {
-            m_innerRepository.ValidateUser(userCredentials);
+            innerRepository.ValidateUser(userCredentials);
         }
 
         [DebuggerStepThrough]
         public void CreateUser(UserSignUpInfo userSignUpInfo)
         {
-            m_innerRepository.CreateUser(userSignUpInfo);
+            innerRepository.CreateUser(userSignUpInfo);
         }
 
         [DebuggerStepThrough]
         public virtual IEnumerable<PasswordQuestion> ListPasswordQuestions(string languageCode)
         {
-            return m_innerRepository.ListPasswordQuestions(languageCode);
+            return innerRepository.ListPasswordQuestions(languageCode);
         }
 
         [DebuggerStepThrough]
         public virtual IDictionary<int, PasswordQuestion> MapPasswordQuestion(string languageCode)
         {
-            return m_innerRepository.MapPasswordQuestion(languageCode);
+            return innerRepository.MapPasswordQuestion(languageCode);
         }
 
         #endregion
@@ -46,7 +47,7 @@ namespace Tickets.Interface.Repository.Decorated
         [DebuggerStepThrough]
         public virtual Staff Retrieve(int identity)
         {
-            return m_innerRepository.Retrieve(identity);
+            return innerRepository.Retrieve(identity);
         }
 
         #endregion
