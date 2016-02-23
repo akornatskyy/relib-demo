@@ -1,5 +1,6 @@
-﻿using System;
-using System.Web.Security;
+﻿using System.Web.Security;
+
+using Tickets.Module.Properties;
 
 namespace Tickets.Module.Helpers
 {
@@ -12,34 +13,34 @@ namespace Tickets.Module.Helpers
             switch (createStatus)
             {
                 case MembershipCreateStatus.DuplicateUserName:
-                    return Properties.MembershipCreateStatusNames.DuplicateUserName;
+                    return MembershipCreateStatusNames.DuplicateUserName;
 
                 case MembershipCreateStatus.DuplicateEmail:
-                    return Properties.MembershipCreateStatusNames.DuplicateEmail;
+                    return MembershipCreateStatusNames.DuplicateEmail;
 
                 case MembershipCreateStatus.InvalidPassword:
-                    return Properties.MembershipCreateStatusNames.InvalidPassword;
+                    return MembershipCreateStatusNames.InvalidPassword;
 
                 case MembershipCreateStatus.InvalidEmail:
-                    return Properties.MembershipCreateStatusNames.InvalidEmail;
+                    return MembershipCreateStatusNames.InvalidEmail;
 
                 case MembershipCreateStatus.InvalidAnswer:
-                    return Properties.MembershipCreateStatusNames.InvalidAnswer;
+                    return MembershipCreateStatusNames.InvalidAnswer;
 
                 case MembershipCreateStatus.InvalidQuestion:
-                    return Properties.MembershipCreateStatusNames.InvalidQuestion;
+                    return MembershipCreateStatusNames.InvalidQuestion;
 
                 case MembershipCreateStatus.InvalidUserName:
-                    return Properties.MembershipCreateStatusNames.InvalidUserName;
+                    return MembershipCreateStatusNames.InvalidUserName;
 
                 case MembershipCreateStatus.ProviderError:
-                    return Properties.MembershipCreateStatusNames.ProviderError;
+                    return MembershipCreateStatusNames.ProviderError;
 
                 case MembershipCreateStatus.UserRejected:
-                    return Properties.MembershipCreateStatusNames.UserRejected;
+                    return MembershipCreateStatusNames.UserRejected;
 
                 default:
-                    return Properties.MembershipCreateStatusNames.UnknownError;
+                    return MembershipCreateStatusNames.UnknownError;
             }
         }
     }

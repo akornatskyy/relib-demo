@@ -1,4 +1,5 @@
 ﻿using System.Data.Linq;
+
 using ReusableLibrary.Abstractions.Repository;
 
 namespace Tickets.Module.Repository

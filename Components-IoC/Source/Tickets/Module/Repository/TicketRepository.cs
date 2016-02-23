@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+
 using ReusableLibrary.Abstractions.Repository;
 using ReusableLibrary.Supplemental.Collections;
 using ReusableLibrary.Supplemental.Repository;
+
 using Tickets.Interface.Models;
 using Tickets.Interface.Repository;
 
@@ -10,11 +12,11 @@ namespace Tickets.Module.Repository
 {
     public sealed partial class TicketRepository : ITicketRepository
     {
-        private readonly TicketsDataContext m_context;
+        private readonly TicketsDataContext context;
 
         public TicketRepository(TicketsDataContext context)
         {
-            m_context = context;
+            this.context = context;
         }
 
         #region ITicketRepository Members
@@ -29,7 +31,7 @@ namespace Tickets.Module.Repository
 
         public IEnumerable<TicketType> ListTicketTypes(string languageCode)
         {
-            var list = FindAllTypesOrderedByNameQuery.Invoke(m_context, languageCode).ToList();
+            var list = FindAllTypesOrderedByNameQuery.Invoke(context, languageCode).ToList();
             list.Insert(0, TicketType.Any);
             return list.AsReadOnly();
         }
@@ -45,7 +47,7 @@ namespace Tickets.Module.Repository
 
         public Ticket Retrieve(int identity)
         {
-            var t = FindByIdQuery.Invoke(m_context, identity);
+            var t = FindByIdQuery.Invoke(context, identity);
             return new Ticket()
             {
                 AssignedTo = t.AssignedTo.DisplayName,
@@ -85,7 +87,7 @@ namespace Tickets.Module.Repository
 
         private IQueryable<Ticket> AllTickets()
         {
-            return from t in m_context.Tickets
+            return from t in context.Tickets
                    orderby t.TicketTypeId, t.OpenedOn descending
                    select new Ticket()
                    {

@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Security;
+
 using ReusableLibrary.Abstractions.Repository;
 using ReusableLibrary.Supplemental.Collections;
+
 using Tickets.Interface.Models;
 using Tickets.Interface.Repository;
 using Tickets.Module.Helpers;
+using Tickets.Module.Properties;
 
 namespace Tickets.Module.Repository
 {
     public sealed partial class MembershipRepository : IMembershipRepository
     {
-        private readonly TicketsDataContext m_context;
-        private readonly MembershipProvider m_provider;
+        private readonly TicketsDataContext context;
+        private readonly MembershipProvider provider;
 
         public MembershipRepository(TicketsDataContext context)
             : this(context, null)
@@ -22,24 +25,24 @@ namespace Tickets.Module.Repository
 
         private MembershipRepository(TicketsDataContext context, MembershipProvider provider)
         {
-            m_context = context;
-            m_provider = provider ?? Membership.Provider;
+            this.context = context;
+            this.provider = provider ?? Membership.Provider;
         }
 
         #region IMembershipRepository Members
 
         public void ValidateUser(UserCredentials credentials)
         {
-            if (!m_provider.ValidateUser(credentials.UserName, credentials.Password))
+            if (!provider.ValidateUser(credentials.UserName, credentials.Password))
             {
-                throw new RepositoryGuardException(Properties.Resources.GuardValidateUser);
+                throw new RepositoryGuardException(Resources.GuardValidateUser);
             }
         }
 
         public void CreateUser(UserSignUpInfo signUpInfo)
         {
             MembershipCreateStatus status;
-            var user = m_provider.CreateUser(
+            var user = provider.CreateUser(
                 signUpInfo.Credentials.UserName, 
                 signUpInfo.Credentials.Password, 
                 signUpInfo.Info.Email, 
@@ -57,12 +60,12 @@ namespace Tickets.Module.Repository
                 StaffType = 'T'
             };
 
-            m_context.Staffs.InsertOnSubmit(staff);
+            context.Staffs.InsertOnSubmit(staff);
         }
 
         public IEnumerable<PasswordQuestion> ListPasswordQuestions(string languageCode)
         {
-            return (FindAllPasswordQuestionOrderedByNameQuery.Invoke(m_context, languageCode))
+            return (FindAllPasswordQuestionOrderedByNameQuery.Invoke(context, languageCode))
                     .ToList().AsReadOnly();
         }
 
@@ -77,7 +80,7 @@ namespace Tickets.Module.Repository
 
         public Staff Retrieve(int identity)
         {
-            var s = FindByIdQuery.Invoke(m_context, identity);
+            var s = FindByIdQuery.Invoke(context, identity);
             return new Staff()
             {
                 StaffId = s.StaffId,

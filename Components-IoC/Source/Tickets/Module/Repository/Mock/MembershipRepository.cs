@@ -1,24 +1,27 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+
 using ReusableLibrary.Abstractions.Models;
 using ReusableLibrary.Abstractions.Repository;
 using ReusableLibrary.Supplemental.Collections;
 using ReusableLibrary.Supplemental.System;
+
 using Tickets.Interface.Models;
 using Tickets.Interface.Repository;
+using Tickets.Module.Properties;
 
 namespace Tickets.Module.Repository.Mock
 {
     public sealed class MembershipRepository : IMembershipRepository
     {
-        private readonly Random g_random = new Random();
-        private readonly IDictionary m_state;
+        private readonly Random random = new Random();
+        private readonly IDictionary state;
 
         public MembershipRepository(IDictionary state)
         {
-            m_state = state;
-            m_state.Add(Key.From<UserCredentials>("demo"), new UserCredentials()
+            this.state = state;
+            this.state.Add(Key.From<UserCredentials>("demo"), new UserCredentials()
             {
                 UserName = "demo",
                 Password = "P@ssw0rd"
@@ -30,22 +33,22 @@ namespace Tickets.Module.Repository.Mock
         public void ValidateUser(UserCredentials credentials)
         {
             var key = Key.From<UserCredentials>(credentials.UserName);
-            var securityInfo = m_state.GetValue<UserCredentials>(key, null);
+            var securityInfo = state.GetValue<UserCredentials>(key, null);
 
             if (securityInfo == null
                 || !securityInfo.Password.Equals(credentials.Password, StringComparison.Ordinal))
             {
-                throw new RepositoryGuardException(Properties.Resources.GuardValidateUser);
+                throw new RepositoryGuardException(Resources.GuardValidateUser);
             }
         }
 
         public void CreateUser(UserSignUpInfo userSignUpInfo)
         {
             var key = Key.From<UserCredentials>(userSignUpInfo.Credentials.UserName);
-            m_state.Add(key, userSignUpInfo.Credentials);
+            state.Add(key, userSignUpInfo.Credentials);
 
             key = Key.From<UserSignUpInfo>(userSignUpInfo.Credentials.UserName);
-            m_state.Add(key, userSignUpInfo);
+            state.Add(key, userSignUpInfo);
         }
 
         public IEnumerable<PasswordQuestion> ListPasswordQuestions(string languageCode)
@@ -93,9 +96,9 @@ namespace Tickets.Module.Repository.Mock
         {
             return new Staff() 
             {
-                DisplayName = "{0} {1}".FormatWith(g_random.NextWord().Capitalize(), g_random.NextWord().Capitalize()),
-                ReportsTo = g_random.NextInt(1000, 9999),
-                StaffId = g_random.NextInt(1000, 9999)
+                DisplayName = "{0} {1}".FormatWith(random.NextWord().Capitalize(), random.NextWord().Capitalize()),
+                ReportsTo = random.NextInt(1000, 9999),
+                StaffId = random.NextInt(1000, 9999)
             };
         }
     }
