@@ -1,11 +1,10 @@
-﻿using System;
-using Public.FunctionalTests.Pages.Account;
-using Public.FunctionalTests.Services;
-using ReusableLibrary.Supplemental.Collections;
-using ReusableLibrary.Supplemental.System;
-using Tickets.Interface.Models;
-using Xunit;
+﻿using Xunit;
+
+using Public.FunctionalTests.Constants;
+using Public.FunctionalTests.Infrastructure;
 using Public.FunctionalTests.Pages.Tickets;
+using Public.FunctionalTests.Services;
+using Tickets.Interface.Models;
 
 namespace Public.FunctionalTests.Fixtures
 {
@@ -18,7 +17,7 @@ namespace Public.FunctionalTests.Fixtures
         }
 
         [Fact]
-        [Trait(Constants.TraitNames.Tickets, "UC2.2.1. Default search")]
+        [Trait(TraitNames.Tickets, "UC2.2.1. Default search")]
         public void Search_By_Default()
         {
             var errors = Service.Search(new TicketSpecification());
@@ -27,7 +26,7 @@ namespace Public.FunctionalTests.Fixtures
         }
 
         [Fact]
-        [Trait(Constants.TraitNames.Tickets, "UC2.2.2. Search by title")]
+        [Trait(TraitNames.Tickets, "UC2.2.2. Search by title")]
         public void Search_By_Title()
         {
             var errors = Service.Search(new TicketSpecification() 

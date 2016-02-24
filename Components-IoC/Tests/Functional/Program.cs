@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Public.FunctionalTests.Fixtures;
+
 using WatiN.Core.Logging;
 using Xunit;
+
+using Public.FunctionalTests.Fixtures;
+using Public.FunctionalTests.Infrastructure;
 
 namespace Public.FunctionalTests
 {

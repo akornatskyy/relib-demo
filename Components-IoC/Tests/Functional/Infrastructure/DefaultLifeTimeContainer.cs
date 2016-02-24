@@ -1,7 +1,9 @@
 ﻿using ReusableLibrary.WatiN;
 using WatiN.Core;
 
-namespace Public.FunctionalTests
+using Public.FunctionalTests.Constants;
+
+namespace Public.FunctionalTests.Infrastructure
 {
     public class DefaultLifeTimeContainer : ApplicationLifeTimeContainer<IE>
     {
@@ -15,7 +17,7 @@ namespace Public.FunctionalTests
         }
 
         public DefaultLifeTimeContainer()
-            : base(Constants.EnvironmentNames.PathToWebSite, Constants.EnvironmentNames.WebServerPort,
+            : base(EnvironmentNames.PathToWebSite, EnvironmentNames.WebServerPort,
 #if DEBUG
  false)
 #else

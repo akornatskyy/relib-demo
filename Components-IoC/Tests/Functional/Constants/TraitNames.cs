@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Public.FunctionalTests.Constants
+﻿namespace Public.FunctionalTests.Constants
 {
     public static class TraitNames
     {

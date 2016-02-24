@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Specialized;
-using Public.FunctionalTests.Pages.Tickets;
+
 using ReusableLibrary.WatiN;
+
+using Public.FunctionalTests.Pages.Tickets;
 using Tickets.Interface.Models;
 
 namespace Public.FunctionalTests.Services

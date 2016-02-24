@@ -1,6 +1,4 @@
-﻿using Public.FunctionalTests.Pages.Home;
-using WatiN.Core;
-using Xunit;
+﻿using Xunit;
 
 namespace Public.FunctionalTests.Pages.Tickets
 {

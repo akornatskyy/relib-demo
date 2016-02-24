@@ -1,10 +1,11 @@
-﻿using Public.FunctionalTests.Parts;
-using Public.FunctionalTests.Services;
-using ReusableLibrary.WatiN;
+﻿using ReusableLibrary.WatiN;
 using WatiN.Core;
 using Xunit;
 
-namespace Public.FunctionalTests
+using Public.FunctionalTests.Parts;
+using Public.FunctionalTests.Services;
+
+namespace Public.FunctionalTests.Infrastructure
 {
     public abstract class DefaultPerFixtureLifeTimeTest<TService> : IUseFixture<DefaultLifeTimeContainer>
         where TService : AbstractService, new()

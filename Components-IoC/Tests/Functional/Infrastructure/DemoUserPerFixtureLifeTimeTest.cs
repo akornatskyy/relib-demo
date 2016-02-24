@@ -1,8 +1,9 @@
-﻿using Public.FunctionalTests.Pages.Account;
-using Public.FunctionalTests.Services;
-using Xunit;
+﻿using Xunit;
 
-namespace Public.FunctionalTests
+using Public.FunctionalTests.Pages.Account;
+using Public.FunctionalTests.Services;
+
+namespace Public.FunctionalTests.Infrastructure
 {
     public abstract class DemoUserPerFixtureLifeTimeTest<TService> : DefaultPerFixtureLifeTimeTest<TService>
         where TService : AbstractService, new()
@@ -12,8 +13,10 @@ namespace Public.FunctionalTests
             base.SetFixture(data);
 
             Browser.GoTo(data.Application.RelativeUri(LogonPage.Uri));
-            var loginService = new AccountService();
-            loginService.Browser = Browser;
+            var loginService = new AccountService
+            {
+                Browser = Browser
+            };
             var errors = loginService.Authenticate(DomainModelFactory.CredentialsDemo());
             Assert.Empty(errors);
         }

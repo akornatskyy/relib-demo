@@ -1,6 +1,4 @@
-﻿using WatiN.Core;
-using Public.FunctionalTests.Parts;
-using Xunit;
+﻿using Xunit;
 
 namespace Public.FunctionalTests.Pages.Account
 {

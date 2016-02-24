@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Specialized;
-using Public.FunctionalTests.Pages.Account;
+
 using ReusableLibrary.WatiN;
-using Tickets.Interface.Models;
 using WatiN.Core;
+
+using Public.FunctionalTests.Pages.Account;
+using Tickets.Interface.Models;
 
 namespace Public.FunctionalTests.Services
 {

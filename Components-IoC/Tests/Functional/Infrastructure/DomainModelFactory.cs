@@ -1,9 +1,6 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using Tickets.Interface.Models;
-using ReusableLibrary.Supplemental.System;
+﻿using Tickets.Interface.Models;
 
-namespace Public.FunctionalTests
+namespace Public.FunctionalTests.Infrastructure
 {
     public static class DomainModelFactory
     {

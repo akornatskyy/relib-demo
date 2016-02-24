@@ -1,5 +1,4 @@
-﻿using System;
-using WatiN.Core;
+﻿using WatiN.Core;
 
 namespace Public.FunctionalTests.Services
 {

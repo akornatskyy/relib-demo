@@ -1,7 +1,6 @@
-﻿using Public.FunctionalTests.Parts;
-using ReusableLibrary.WatiN;
-using WatiN.Core;
-using Xunit;
+﻿using ReusableLibrary.WatiN;
+
+using Public.FunctionalTests.Parts;
 
 namespace Public.FunctionalTests.Pages
 {
