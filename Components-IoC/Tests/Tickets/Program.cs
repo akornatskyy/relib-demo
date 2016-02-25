@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+
+using Tickets.Tests.Fixtures;
 using Tickets.Tests.Infrastructure;
 
 namespace Tickets.Tests
@@ -7,7 +9,7 @@ namespace Tickets.Tests
     {
         public static void Main()
         {
-            using (var test = new Fixtures.TicketRepositoryTest())
+            using (var test = new TicketRepositoryTest())
             {
                 test.RetrieveMultiple(DomainModelFactory.RandomTicketSpecifications().First());
             }

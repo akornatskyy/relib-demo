@@ -1,61 +1,52 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.IO;
+
 using ReusableLibrary.QualityAssurance.Profiling;
-using ReusableLibrary.Supplemental.Collections;
-using Tickets.Interface.Models;
-using Tickets.Tests.Fixtures;
-using Tickets.Tests.Infrastructure;
 using Xunit;
 using Xunit.Extensions;
+
+using Tickets.Tests.Constants;
+using Tickets.Tests.Fixtures;
+using Tickets.Tests.Infrastructure;
 
 namespace Tickets.Tests.Profiling
 {
     public sealed class TicketRepositoryProfilingTest : AbstractProfilingTest<TicketRepositoryTest>
     {
-        private static IEnumerable<object[]> g_threads = (new[] { 1, 2, 4 }).ToPropertyData();
-        
-        private readonly TextWriter m_logger = System.Console.Out;
-
-        public static IEnumerable<object[]> Threads
-        {
-            get
-            {
-                return g_threads;
-            }
-        }
+        private readonly TextWriter logger = Console.Out;
 
         [Theory]
         [PropertyData("Threads")]
-        [Trait(Constants.TraitNames.Profiling, "Ticket")]
+        [Trait(TraitNames.Profiling, "Ticket")]
         public void UpdateTicket(int threads)
         {
-            var report = Profile<string>(threads, test => test.UpdateTicket, DomainModelFactory.RandomUsers);
+            var report = Profile(threads, test => test.UpdateTicket, DomainModelFactory.RandomUsers);
 
-            m_logger.WriteLine(report);
+            logger.WriteLine(report);
 
             Assert.True(report.Succeed);
         }
 
         [Theory]
         [PropertyData("Threads")]
-        [Trait(Constants.TraitNames.Profiling, "Ticket")]
+        [Trait(TraitNames.Profiling, "Ticket")]
         public void RetrieveMultiple(int threads)
         {
-            var report = Profile<TicketSpecification>(threads, test => test.RetrieveMultiple, DomainModelFactory.RandomTicketSpecifications);
+            var report = Profile(threads, test => test.RetrieveMultiple, DomainModelFactory.RandomTicketSpecifications);
 
-            m_logger.WriteLine(report);
+            logger.WriteLine(report);
 
             Assert.True(report.Succeed);
         }
 
         [Theory]
         [PropertyData("Threads")]
-        [Trait(Constants.TraitNames.Profiling, "Ticket")]
+        [Trait(TraitNames.Profiling, "Ticket")]
         public void ListTicketTypes(int threads)
         {
-            var report = Profile<string>(threads, test => test.ListTicketTypes, DomainModelFactory.RandomLanguageCodes);
+            var report = Profile(threads, test => test.ListTicketTypes, DomainModelFactory.RandomLanguageCodes);
 
-            m_logger.WriteLine(report);
+            logger.WriteLine(report);
 
             Assert.True(report.Succeed);
         }

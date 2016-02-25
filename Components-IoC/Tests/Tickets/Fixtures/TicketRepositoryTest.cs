@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+
 using ReusableLibrary.Abstractions.Repository;
 using ReusableLibrary.QualityAssurance.Repository;
 using ReusableLibrary.Supplemental.Collections;
-using Tickets.Interface.Models;
-using Tickets.Module.Repository;
-using Tickets.Tests.Infrastructure;
 using Xunit;
 using Xunit.Extensions;
+
+using Tickets.Interface.Models;
+using Tickets.Module.Repository;
+using Tickets.Tests.Constants;
+using Tickets.Tests.Infrastructure;
 
 namespace Tickets.Tests.Fixtures
 {
@@ -31,7 +34,7 @@ namespace Tickets.Tests.Fixtures
 
         [Theory]
         [PropertyData("Users")]
-        [Trait(Constants.TraitNames.Repository, "Ticket")]
+        [Trait(TraitNames.Repository, "Ticket")]
         public void UpdateTicket(string username)
         {
             // Arrange
@@ -45,7 +48,7 @@ namespace Tickets.Tests.Fixtures
 
         [Theory]
         [PropertyData("TicketSpecifications")]
-        [Trait(Constants.TraitNames.Repository, "Ticket")]
+        [Trait(TraitNames.Repository, "Ticket")]
         public void RetrieveMultiple(TicketSpecification spec)
         {
             // Arrange
@@ -63,7 +66,7 @@ namespace Tickets.Tests.Fixtures
 
         [Theory]
         [InlineData("en")]
-        [Trait(Constants.TraitNames.Repository, "Ticket")]
+        [Trait(TraitNames.Repository, "Ticket")]
         public void ListTicketTypes(string languageCode)
         {
             // Arrange

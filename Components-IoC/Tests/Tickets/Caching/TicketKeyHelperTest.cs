@@ -1,11 +1,13 @@
 ﻿using ReusableLibrary.Abstractions.Repository;
+using Xunit;
+using Xunit.Extensions;
+
 using Tickets.Interface.Models;
 using Tickets.Interface.Repository;
 using Tickets.Interface.Repository.Caching;
 using Tickets.Interface.Repository.Caching.Keys;
+using Tickets.Tests.Constants;
 using Tickets.Tests.Infrastructure;
-using Xunit;
-using Xunit.Extensions;
 
 namespace Tickets.Tests.Caching
 {
@@ -14,7 +16,7 @@ namespace Tickets.Tests.Caching
         [Theory]
         [InlineData(105)]
         [InlineData(501)]
-        [Trait(Constants.TraitNames.Caching, "Ticket")]
+        [Trait(TraitNames.Caching, "Ticket")]
         public void RetrieveKey(int id)
         {
             var key = TicketKeyHelper.Retrieve(id);
@@ -24,7 +26,7 @@ namespace Tickets.Tests.Caching
         }
 
         [Fact]
-        [Trait(Constants.TraitNames.Caching, "Ticket")]
+        [Trait(TraitNames.Caching, "Ticket")]
         public void TicketDependency()
         {
             var key = TicketKeyHelper.TicketDependency();

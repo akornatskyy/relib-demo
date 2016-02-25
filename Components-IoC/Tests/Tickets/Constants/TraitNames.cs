@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Tickets.Tests.Constants
+﻿namespace Tickets.Tests.Constants
 {
     public static class TraitNames
     {
