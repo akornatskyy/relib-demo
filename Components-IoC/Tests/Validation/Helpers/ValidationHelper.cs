@@ -1,7 +1,10 @@
 ﻿using System;
+
 using Microsoft.Practices.EnterpriseLibrary.Validation;
-using Public.ValidationTests.Infrastructure;
 using Xunit;
+
+using Public.ValidationTests.Constants;
+using Public.ValidationTests.Infrastructure;
 
 namespace Public.ValidationTests.Helpers
 {
@@ -10,9 +13,9 @@ namespace Public.ValidationTests.Helpers
         public static void Validate(string name, string ruleSet, string property, object data, bool succeed, string error)
         {
             // Arrange
-            var validator = ValidationFactory.CreateValidator(Type.GetType(name), ruleSet, Constants.Configuration.Source);
+            var validator = ValidationFactory.CreateValidator(Type.GetType(name), ruleSet, Configuration.Source);
             var model = DomainModelFactory.Create(name);
-            model.GetType().GetProperty(property).GetSetMethod().Invoke(model, new object[] { data });
+            model.GetType().GetProperty(property).GetSetMethod().Invoke(model, new[] { data });
 
             // Act            
             var results = validator.Validate(model);

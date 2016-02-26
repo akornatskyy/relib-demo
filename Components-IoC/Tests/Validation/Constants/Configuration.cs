@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 
 namespace Public.ValidationTests.Constants

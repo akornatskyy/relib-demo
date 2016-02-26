@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Public.ValidationTests.Constants
+﻿namespace Public.ValidationTests.Constants
 {
     public static class TraitNames
     {

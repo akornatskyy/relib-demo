@@ -1,13 +1,15 @@
-﻿using Public.ValidationTests.Helpers;
-using Xunit;
+﻿using Xunit;
 using Xunit.Extensions;
+
+using Public.ValidationTests.Constants;
+using Public.ValidationTests.Helpers;
 
 namespace Public.ValidationTests.Fixtures
 {
     public sealed class TicketValidationTest
     {
         [Theory]
-        [Trait(Constants.TraitNames.TicketValidation, "UserCredentials")]
+        [Trait(TraitNames.TicketValidation, "UserCredentials")]
         [ExcelData("ValidationTestCases.xls", @"SELECT * FROM TestRange WHERE         
         Name LIKE '%UserCredentials%' AND Property='UserName'")]
         public void UserCredentials_UserName(string name, string ruleSet, string property, string data, bool succeed, string error)
@@ -16,7 +18,7 @@ namespace Public.ValidationTests.Fixtures
         }
 
         [Theory]
-        [Trait(Constants.TraitNames.TicketValidation, "UserCredentials")]
+        [Trait(TraitNames.TicketValidation, "UserCredentials")]
         [ExcelData("ValidationTestCases.xls", @"SELECT * FROM TestRange WHERE         
         Name LIKE '%UserCredentials%' AND Property='Password'")]
         public void UserCredentials_Password(string name, string ruleSet, string property, string data, bool succeed, string error)
@@ -25,7 +27,7 @@ namespace Public.ValidationTests.Fixtures
         }
 
         [Theory]
-        [Trait(Constants.TraitNames.TicketValidation, "UserInfo")]
+        [Trait(TraitNames.TicketValidation, "UserInfo")]
         [ExcelData("ValidationTestCases.xls", @"SELECT * FROM TestRange WHERE         
         Name LIKE '%UserInfo%' AND Property='DisplayName'")]
         public void UserInfo_DisplayName(string name, string ruleSet, string property, string data, bool succeed, string error)
