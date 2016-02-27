@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Web.Mvc;
 
-namespace Public.WebMvcTests
+namespace Public.WebMvcTests.Infrastructure
 {
     public sealed class SimpleValueProvider : Dictionary<string, object>, IValueProvider
     {
-        private readonly CultureInfo m_culture;
+        private readonly CultureInfo culture;
 
         public SimpleValueProvider()
             : this(null)
@@ -17,8 +17,7 @@ namespace Public.WebMvcTests
         public SimpleValueProvider(CultureInfo culture)
             : base(StringComparer.OrdinalIgnoreCase)
         {
-
-            m_culture = culture ?? CultureInfo.InvariantCulture;
+            this.culture = culture ?? CultureInfo.InvariantCulture;
         }
 
         // copied from ValueProviderUtil
@@ -39,14 +38,12 @@ namespace Public.WebMvcTests
                         {
                             return true; // exact match
                         }
-                        else
+                        
+                        switch (key[prefix.Length])
                         {
-                            switch (key[prefix.Length])
-                            {
-                                case '.': // known separator characters
-                                case '[':
-                                    return true;
-                            }
+                            case '.': // known separator characters
+                            case '[':
+                                return true;
                         }
                     }
                 }
@@ -58,16 +55,12 @@ namespace Public.WebMvcTests
         public ValueProviderResult GetValue(string key)
         {
             object rawValue;
-            if (TryGetValue(key, out rawValue))
+            if (!TryGetValue(key, out rawValue))
             {
-                return new ValueProviderResult(rawValue, Convert.ToString(rawValue, m_culture), m_culture);
-            }
-            else
-            {
-                // value not found
                 return null;
             }
-        }
 
+            return new ValueProviderResult(rawValue, Convert.ToString(rawValue, culture), culture);
+        }
     }
 }

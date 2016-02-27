@@ -1,7 +1,8 @@
-﻿using Tickets.Interface.Models;
-using Xunit;
+﻿using Xunit;
 
-namespace Public.WebMvcTests
+using Tickets.Interface.Models;
+
+namespace Public.WebMvcTests.Helpers
 {
     public static class AssertHelper
     {

@@ -1,8 +1,9 @@
 ﻿using System.IO;
 using System.Web;
+
 using Moq;
 
-namespace Public.WebMvcTests
+namespace Public.WebMvcTests.Mocks
 {
     public class HttpResponseMock : Mock<HttpResponseBase>
     {

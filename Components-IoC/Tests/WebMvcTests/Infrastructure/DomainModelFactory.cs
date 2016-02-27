@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+
 using ReusableLibrary.Abstractions.Models;
 using ReusableLibrary.Supplemental.Collections;
 using ReusableLibrary.Supplemental.System;
+
 using Tickets.Interface.Models;
 
-namespace Public.WebMvcTests
+namespace Public.WebMvcTests.Infrastructure
 {
     public static class DomainModelFactory
     {
-        private static readonly Random g_random = new Random();
+        private static readonly Random Rnd = new Random();
 
         public static IValueProvider ValueProvider(TicketSpecification spec)
         {
@@ -26,9 +28,9 @@ namespace Public.WebMvcTests
         {
             return new TicketSpecification()
             {
-                IncludeClosed = g_random.NextBoolean(),
-                TicketTypeId = g_random.NextInt(0, 10),
-                Title = g_random.NextSentence(g_random.NextInt(0, 5))
+                IncludeClosed = Rnd.NextBoolean(),
+                TicketTypeId = Rnd.NextInt(0, 10),
+                Title = Rnd.NextSentence(Rnd.NextInt(0, 5))
             };
         }
 
@@ -43,11 +45,11 @@ namespace Public.WebMvcTests
         {
             return new TicketSearchResult() 
             { 
-                AssignedTo = g_random.NextWord(),
-                IsOpen = g_random.NextBoolean(),
-                TicketId = g_random.NextInt(1, Int32.MaxValue - 1),
-                TicketTypeId = g_random.NextInt(0, 10),
-                Title = g_random.NextSentence(g_random.NextInt(1, 5))
+                AssignedTo = Rnd.NextWord(),
+                IsOpen = Rnd.NextBoolean(),
+                TicketId = Rnd.NextInt(1, Int32.MaxValue - 1),
+                TicketTypeId = Rnd.NextInt(0, 10),
+                Title = Rnd.NextSentence(Rnd.NextInt(1, 5))
             };
         }
     }

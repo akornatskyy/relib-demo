@@ -1,8 +1,9 @@
 ﻿using System.Collections.Specialized;
 using System.Web;
+
 using Moq;
 
-namespace Public.WebMvcTests
+namespace Public.WebMvcTests.Mocks
 {
     public class HttpRequestMock : Mock<HttpRequestBase>
     {

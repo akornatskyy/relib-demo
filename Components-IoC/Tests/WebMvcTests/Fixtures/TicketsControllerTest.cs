@@ -1,45 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+
 using Moq;
+using ReusableLibrary.Abstractions.Services;
+using Xunit;
+
 using Public.WebMvc.Controllers;
 using Public.WebMvc.Models;
+using Public.WebMvcTests.Constants;
+using Public.WebMvcTests.Helpers;
+using Public.WebMvcTests.Infrastructure;
 using Tickets.Interface.Models;
 using Tickets.Interface.Services;
-using Xunit;
-using ReusableLibrary.Abstractions.Models;
-using ReusableLibrary.Abstractions.Services;
 
 namespace Public.WebMvcTests.Fixtures
 {
     public sealed class TicketsControllerTest : ControllerTest
     {
-        private readonly Mock<IMementoService> m_mementoServiceMock;
-        private readonly Mock<ITicketService> m_ticketServiceMock;
-        private readonly TicketsController m_controller;
+        private readonly Mock<IMementoService> mockMementoService;
+        private readonly Mock<ITicketService> mockTicketService;
+        private readonly TicketsController controller;
 
         public TicketsControllerTest()
         {
-            m_mementoServiceMock = new Mock<IMementoService>(MockBehavior.Strict);
-            m_ticketServiceMock = new Mock<ITicketService>(MockBehavior.Strict);
-            m_controller = InitializeController(new TicketsController(
+            this.mockMementoService = new Mock<IMementoService>(MockBehavior.Strict);
+            this.mockTicketService = new Mock<ITicketService>(MockBehavior.Strict);
+            this.controller = InitializeController(new TicketsController(
                 ValidationServiceMock.Object, 
-                m_mementoServiceMock.Object,
-                m_ticketServiceMock.Object));
+                mockMementoService.Object,
+                mockTicketService.Object));
         }
 
         [Fact]
-        [Trait(Constants.TraitNames.Controller, "TicketsController")]
+        [Trait(TraitNames.Controller, "TicketsController")]
         public void Index()
         {
             // Arrange
             SetupViewDataLists();
-            m_mementoServiceMock
+            mockMementoService
                 .Setup(memento => memento.Load<TicketSpecification>())
                 .Returns(new TicketSpecification());
 
             // Act
-            var result = m_controller.Index() as ViewResult;
+            var result = controller.Index() as ViewResult;
 
             // Assert
             Assert.NotNull(result);
@@ -54,7 +58,7 @@ namespace Public.WebMvcTests.Fixtures
         }
 
         [Fact]
-        [Trait(Constants.TraitNames.Controller, "TicketsController")]
+        [Trait(TraitNames.Controller, "TicketsController")]
         public void Search_Validation_Failed()
         {
             // Arrange
@@ -64,7 +68,7 @@ namespace Public.WebMvcTests.Fixtures
                 .Returns(false);
 
             // Act
-            var result = m_controller.Search() as ViewResult;
+            var result = controller.Search() as ViewResult;
 
             // Assert
             Assert.NotNull(result);
@@ -72,27 +76,27 @@ namespace Public.WebMvcTests.Fixtures
         }
 
         [Fact]
-        [Trait(Constants.TraitNames.Controller, "TicketsController")]
+        [Trait(TraitNames.Controller, "TicketsController")]
         public void Search()
         {
             // Arrange
             var spec = DomainModelFactory.TicketSpecification();
             var items = DomainModelFactory.PagedList_TicketSearchResult(2);
 
-            m_controller.ValueProvider = DomainModelFactory.ValueProvider(spec);
+            controller.ValueProvider = DomainModelFactory.ValueProvider(spec);
             ValidationServiceMock
                 .Setup(validationService => validationService.Validate(It.IsAny<TicketSpecification>()))
                 .Callback<TicketSpecification>(s => AssertHelper.Equal(spec, s))
                 .Returns(true);
-            m_mementoServiceMock
+            mockMementoService
                 .Setup(memento => memento.Save(It.IsAny<TicketSpecification>()))
                 .Returns(true);
-            m_ticketServiceMock
+            mockTicketService
                 .Setup(ticketService => ticketService.SearchTickets(It.IsAny<TicketSpecification>(), null, null))
                 .Returns(items);
 
             // Act
-            var result = m_controller.Search() as ViewResult;
+            var result = controller.Search() as ViewResult;
 
             // Assert
             Assert.NotNull(result);
@@ -104,25 +108,6 @@ namespace Public.WebMvcTests.Fixtures
             AssertHelper.Equal(spec, viewdata.Specification);
             Assert.NotNull(viewdata.Items);            
             Assert.Equal(items, viewdata.Items);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-
-            if (disposing)
-            {
-                m_mementoServiceMock.VerifyAll();
-                m_ticketServiceMock.VerifyAll();                
-            }
-        }
-
-        private void SetupViewDataLists()
-        {
-            m_ticketServiceMock.Setup(service => service.DefaultTicketType)
-                .Returns(TicketType.Any);
-            m_ticketServiceMock.Setup(service => service.TicketTypes)
-                .Returns(new List<TicketType>());
         }
 
         [STAThread]
@@ -150,6 +135,25 @@ namespace Public.WebMvcTests.Fixtures
             }
 
             Environment.Exit(0);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
+            if (disposing)
+            {
+                mockMementoService.VerifyAll();
+                mockTicketService.VerifyAll();
+            }
+        }
+
+        private void SetupViewDataLists()
+        {
+            mockTicketService.Setup(service => service.DefaultTicketType)
+                .Returns(TicketType.Any);
+            mockTicketService.Setup(service => service.TicketTypes)
+                .Returns(new List<TicketType>());
         }
     }
 }
